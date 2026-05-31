@@ -1,198 +1,2096 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLinks</title>
-</head>
-<body>
- <style>
-    .btn-link {
-        display: inline-block;
-        padding: 12px 24px;
-        background-color: #2D3E50; 
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-family: sans-serif;
-    }
-    .btn-link:hover {
-        background-color: #1A252F;
-    }
+<!DOCTYPE html> 
+<html lang="ko"> 
+<head>   
+  <meta charset="UTF-8">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <title>MYCAMPUSLINKS — 통합 대시보드 & 광장</title>   
+  <script src="https://cdn.tailwindcss.com"></script>   
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>   
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>   
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>    
+  
+  <script>     
+    const firebaseConfig = {       
+      apiKey: "AIzaSyBOMe_WNoC2VzjsocPI6MfjCEuCnQGzwZw",       
+      authDomain: "mycampuslinks-4a62f.firebaseapp.com",       
+      databaseURL: "https://mycampuslinks-4a62f-default-rtdb.firebaseio.com",       
+      projectId: "mycampuslinks-4a62f",       
+      storageBucket: "mycampuslinks-4a62f.firebasestorage.app",       
+      messagingSenderId: "489349478170",       
+      appId: "1:489349478170:web:939ec96edc5d1980b9dea3",       
+      measurementId: "G-E33JNMN1YE"     
+    };     
+    firebase.initializeApp(firebaseConfig);     
+    const database = firebase.database();     
+    const auth = firebase.auth();      
     
-    .btn-vscode {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #0078d4; /* VS Code 테마 파란색 */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.3s;
-}
-
-.btn-vscode:hover {
-    background-color: #005a9e; /* 마우스 올렸을 때 더 진한 파란색 */
-}
-
-.btn-eclipse {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #2C2255; /* Eclipse 공식 보라색 */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: sans-serif;
-    transition: background-color 0.3s;
-}
-
-.btn-eclipse:hover {
-    background-color: #403472; /* 마우스 올렸을 때 색상 */
-}
-</style>
-
-    <h1 align="center">명지전문대학교 AI게임 소프트웨어학과</h1> 
-<h2 align="center">CampusLinks</h2>
-
- <fieldset>
-<h3>게임프로그래밍</h3>
-
-<fieldset>
-<h4>수업 자료</h4>
-<a href="po-coedit:///?fi=10102542158240&dt=.pdf&co=3&st=0" class="btn-link" target="_blank">
-    📁 1장 수업 자료-C# 프로그래밍 첫걸음
-</a>
-
-<a href="po-coedit:///?fi=10102542161324&dt=.pdf&co=3&st=0"class="btn-link" target="_blank">
-    📁 2장 수업 자료-기본 문법
-</a>
-
-<a href="po-coedit:///?fi=10102542161293&dt=.pdf&co=3&st=0"class="btn-link" target="_blank">
-    📁 3장 수업 자료-조건문
-</a>
-
-<a href="po-coedit:///?fi=10102542161429&dt=.pdf&co=3&st=0"class="btn-link" target="_blank">
-    📁 4장 수업 자료-반복문
-</a>
-
-<a href="po-coedit:///?fi=10102542161371&dt=.pdf&co=3&st=0"class="btn-link" target="_blank">
-    📁 5장 수업 자료-클래스 기본
-</a>
-</fieldset>
-
- </fieldset>
-
- <fieldset>
-<h3>객체지향프로그래밍</h3>
-
-<fieldset>
-<a href="eclipse://" class="btn-eclipse">
-    💻내 컴퓨터의 Eclipse 실행
-</a>
-</fieldset>
-
-<a href="po-coedit:///?fi=10102542272997&dt=.docx&co=3&st=0"class="btn-link" target="_blank">
-    📁 1주차 강의 자료
-</a>
-
-<a href="https://file.notion.so/f/f/d24e00a9-4656-44e2-bab9-92b3ef3abfe1/9815df35-71ba-4d85-8122-b276de5d12b3/2%EC%9E%A5_%EC%9E%90%EB%A3%8C%ED%98%95.pdf?table=block&id=31ce9ba0-16d4-806a-b019-f9fc16a85a78&spaceId=d24e00a9-4656-44e2-bab9-92b3ef3abfe1&expirationTimestamp=1777838400000&signature=xJQrGpUC5-Sqk46j6uBf3NqCV-jiJd8qJc3WN1ZGwRE&downloadName=2%EC%9E%A5+%EC%9E%90%EB%A3%8C%ED%98%95.pdf"class="btn-link" target="_blank">
-    📁 2장 자료형-배열
-</a>
-
-<a href="https://file.notion.so/f/f/d24e00a9-4656-44e2-bab9-92b3ef3abfe1/a1d68c16-df17-4cec-9372-f77f8fee2f76/3%EC%9E%A5_%EC%97%B0%EC%82%B0%EC%9E%90.pdf?table=block&id=1c2e9ba0-16d4-8060-8595-e7f2d651f20d&spaceId=d24e00a9-4656-44e2-bab9-92b3ef3abfe1&expirationTimestamp=1777838400000&signature=YJWVDQ7QvvdyCJZZpaPh6Vjmp7guRHi6pF0cmn5WDc8&downloadName=3%EC%9E%A5+%EC%97%B0%EC%82%B0%EC%9E%90.pdf"class="btn-link" target="_blank">
-    📁 3장 연산자
-</a>
-
-<a href="https://file.notion.so/f/f/d24e00a9-4656-44e2-bab9-92b3ef3abfe1/8b45c13f-3ccf-433d-91d2-75b9e938e1e0/4%EC%9E%A5_%EC%A0%9C%EC%96%B4%EB%AC%B8%EA%B3%BC_%EC%A0%9C%EC%96%B4%ED%82%A4%EC%9B%8C%EB%93%9C.pdf?table=block&id=1c4e9ba0-16d4-809f-bc07-e9b6eae7af03&spaceId=d24e00a9-4656-44e2-bab9-92b3ef3abfe1&expirationTimestamp=1777680000000&signature=phSRnQaXAlz7fnmmUoVLHCFM83CdtYc54yHZtDbNb44&downloadName=4%EC%9E%A5+%EC%A0%9C%EC%96%B4%EB%AC%B8%EA%B3%BC+%EC%A0%9C%EC%96%B4%ED%82%A4%EC%9B%8C%EB%93%9C.pdf"class="btn-link" target="_blank">
-    📁 4장 제어문과 제어키워드 
-</a>
-
-<a href="https://file.notion.so/f/f/d24e00a9-4656-44e2-bab9-92b3ef3abfe1/d2a555f2-8783-41b9-8be7-4732469eb223/5%EC%9E%A5_%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95.pdf?table=block&id=1d2e9ba0-16d4-8055-99bf-ff815bfc243c&spaceId=d24e00a9-4656-44e2-bab9-92b3ef3abfe1&expirationTimestamp=1777838400000&signature=BGhH3GY_A-5PPfMqmb6oSk7RS1dmdk7e4prmRa4Yg_4&downloadName=5%EC%9E%A5+%EC%B0%B8%EC%A1%B0%EC%9E%90%EB%A3%8C%ED%98%95.pdf"class="btn-link" target="_blank">
-    📁 5장 참고자료형
-</a>
-
-<a href="https://file.notion.so/f/f/d24e00a9-4656-44e2-bab9-92b3ef3abfe1/11cdee4f-7f37-499d-b8e7-85ccf1ab9916/%EB%A9%94%EC%84%9C%EB%93%9C.pdf?table=block&id=1d2e9ba0-16d4-80e3-ae1b-ee6429748a49&spaceId=d24e00a9-4656-44e2-bab9-92b3ef3abfe1&expirationTimestamp=1777838400000&signature=tIInmjgohOwVNRXsPf4Auj4OjsuwZ5PiSS67mjT6F4A&downloadName=%EB%A9%94%EC%84%9C%EB%93%9C.pdf"class="btn-link" target="_blank">
-    📁 메서드
-</a>
- </fieldset>
-
- <fieldset>
-<h3>프론트엔드프로그래밍</h3>
-
- <fieldset>
+    tailwind.config = {       
+      theme: {         
+        extend: {           
+          fontFamily: { inter: ['Inter', 'sans-serif'] },           
+          colors: {             
+            surface: { DEFAULT: 'var(--surface)', dim: 'var(--surface-dim)', 'c-lowest': 'var(--surface-c-lowest)', 'c-low': 'var(--surface-c-low)', c: 'var(--surface-c)', 'c-high': 'var(--surface-c-high)', tint: 'var(--surface-tint)' },             
+            'on-surface': { DEFAULT: 'var(--on-surface)', variant: 'var(--on-surface-variant)' },             
+            ol: { DEFAULT: 'var(--ol)', variant: 'var(--ol-variant)' },             
+            primary: { DEFAULT: 'var(--primary)', container: 'var(--primary-container)', fixed: 'var(--primary-fixed)' },             
+            'on-primary': { DEFAULT: 'var(--on-primary)', container: 'var(--on-primary-container)' },             
+            'inverse-primary': 'var(--inverse-primary)',             
+            secondary: { container: 'var(--secondary-container)' },             
+            tertiary: { DEFAULT: 'var(--tertiary)', fixed: 'var(--tertiary-fixed)' },             
+            error: { DEFAULT: 'var(--error)', container: 'var(--error-container)' },             
+            'on-error': { container: 'var(--on-error-container)' },           
+          },           
+          borderRadius: { sm: '0.25rem', DEFAULT: '0.5rem', md: '0.75rem', lg: '1rem', xl: '1.5rem', full: '9999px' },           
+          maxWidth: { container: '100%' },         
+        }       
+      }     
+    }   
+  </script>   
+  
+  <style>     
+    :root {       
+      --surface: #f8f9ff; --surface-dim: #ccdbf3; --surface-c-lowest: #ffffff;       
+      --surface-c-low: #eff4ff; --surface-c: #e6eeff; --surface-c-high: #dce9ff;       
+      --surface-tint: #4355b9; --on-surface: #0d1c2e; --on-surface-variant: #454652;       
+      --ol: #757684; --ol-variant: #c5c5d4; --primary: #24389c;       
+      --primary-container: #3f51b5; --primary-fixed: #dee0ff; --on-primary: #ffffff;       
+      --on-primary-container: #cacfff; --inverse-primary: #bac3ff;       
+      --secondary-container: #e0e2ee;       
+      --tertiary: #313e7e; --tertiary-fixed: #dee1ff;       
+      --error: #ba1a1a; --error-container: #ffdad6; --on-error-container: #93000a;     
+    }     
+    :root:has(#darkToggle:checked) {       
+      --surface: #0f172a; --surface-dim: #1e293b; --surface-c-lowest: #1a2332;       
+      --surface-c-low: #162032; --surface-c: #1e2a3a; --surface-c-high: #243042;       
+      --surface-tint: #7986cb; --on-surface: #e2e8f0; --on-surface-variant: #94a3b8;       
+      --ol: #475569; --ol-variant: #334155; --primary: #bac3ff;       
+      --primary-container: #3f51b5; --primary-fixed: #1e2a4a; --on-primary: #00105c;       
+      --on-primary-container: #dee0ff; --inverse-primary: #293ca0;       
+      --secondary-container: #2a3040;       
+      --tertiary: #b9c3ff; --tertiary-fixed: #1e2550;       
+      --error: #ffb4ab; --error-container: #93000a; --on-error-container: #ffdad6;     
+    }      
     
-    <fieldset>
+    .toggle-track { position:relative; width:44px; height:24px; border-radius:9999px; background:var(--ol-variant); transition:background 0.2s; }     
+    :root:has(#darkToggle:checked) .toggle-track { background:var(--primary); }      
+    
+    .toggle-dot { position:absolute; left:2px; top:2px; width:20px; height:20px; border-radius:9999px; background:var(--surface-c-lowest); transition:transform 0.2s; }     
+    :root:has(#darkToggle:checked) .toggle-dot { transform:translateX(20px); }      
+    
+    .sidebar { transform:translateX(-100%); transition:transform 0.3s ease; }     
+    :root:has(#sidebarToggle:checked) .sidebar { transform:translateX(0); }      
+    
+    .sidebar-overlay { display:none; }     
+    :root:has(#sidebarToggle:checked) .sidebar-overlay { display:block; }     
+    
+    @media(min-width:1024px) {          
+      .sidebar { transform:translateX(0); }         
+      .sidebar-overlay { display:none!important; }     
+    }      
+    
+    .dash-card { transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease; }      
+    .dash-card:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(67, 85, 185, 0.12); }      
+    
+    .progress-bar { transition: width 0.3s ease; }
+    
+    .sortable-ghost { opacity: 0.4; transform: scale(0.98); background-color: var(--surface-c); border: 2px dashed var(--primary); }
+    .sortable-drag { cursor: grabbing !important; }
+  
+    .app-logo-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--surface-c);
+      border: 1px solid var(--ol-variant);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(67, 85, 185, 0.08);
+      overflow: hidden;
+    }
+
+    .app-logo-wrap img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .app-logo-fallback {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    /* 커스텀 스크롤바 */
+    .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; border-radius: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--ol-variant); border-radius: 8px; border: 2px solid var(--surface); }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+  </style> 
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>  
+<body class="font-inter bg-surface text-on-surface min-h-screen">    
+
+  <div id="authContainer" class="fixed inset-0 z-50 bg-surface flex items-center justify-center hidden">     
+    <div class="bg-surface-c-low border border-ol-variant rounded-xl max-w-sm w-full p-8 shadow-xl mx-4 flex flex-col gap-4">       
+      <div class="text-center mb-2">         
+        <h1 class="text-[24px] font-bold text-primary tracking-tight">MYCAMPUSLINKS</h1>         
+        <p class="text-[13px] text-on-surface-variant mt-1" id="authSubtitle">서비스 이용을 위해 로그인해 주세요.</p>       
+      </div>        
+      
+      <div id="nicknameField" class="hidden">         
+        <label class="block text-[12px] font-semibold text-on-surface-variant uppercase mb-1">닉네임</label>         
+        <input type="text" id="authNickname" placeholder="예: 코딩마스터" class="w-full px-3 py-2 text-[14px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary transition-colors">       
+      </div>        
+      
+      <div>         
+        <label class="block text-[12px] font-semibold text-on-surface-variant uppercase mb-1">이메일 주소</label>         
+        <input type="email" id="authEmail" placeholder="example@mjc.ac.kr" class="w-full px-3 py-2 text-[14px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary transition-colors">       
+      </div>       
+      
+      <div>         
+        <label class="block text-[12px] font-semibold text-on-surface-variant uppercase mb-1">비밀번호</label>         
+        <div class="relative w-full">          
+          <input type="password" id="authPassword" placeholder="••••••••" class="w-full px-3 py-2 pr-10 text-[14px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary transition-colors">           
+          <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 px-3 flex items-center text-on-surface-variant hover:text-primary transition-colors" tabindex="-1">             
+            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">               
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />             
+            </svg>           
+          </button>         
+        </div>       
+      </div>       
+      <button id="authPrimaryBtn" onclick="handleAuth()" class="w-full bg-primary text-white py-2.5 rounded text-[14px] font-medium shadow-sm hover:opacity-90 transition-all mt-2">         
+        로그인하기       
+      </button>       
+      <button id="authToggleBtn" onclick="toggleAuthMode()" class="text-[12px] text-on-surface-variant underline hover:text-primary transition-all text-center">         
+        아직 계정이 없으신가요? 회원가입하기       
+      </button>     
+    </div>   
+  </div>    
+
+  <input type="checkbox" id="sidebarToggle" class="hidden">   
+  <input type="checkbox" id="darkToggle" class="hidden">   
+  <label for="sidebarToggle" class="sidebar-overlay fixed inset-0 bg-black/40 z-20 cursor-pointer"></label>    
+
+  <aside class="sidebar fixed left-0 top-0 h-full w-[280px] bg-surface-c-low border-r border-ol-variant flex flex-col z-30">     
+    <div class="px-6 pt-10 pb-4">       
+      <h1 class="text-[20px] font-semibold text-primary tracking-tight">MYCAMPUSLINKS</h1>       
+      <div class="flex items-center justify-between mt-1">         
+        <p class="text-[12px] font-semibold text-on-surface-variant uppercase tracking-[0.05em]">메뉴 탐색</p>         
+        <button onclick="logout()" id="userStatusBtn" class="text-[11px] text-error hover:underline hidden">로그아웃</button>       
+      </div>       
+      <p id="userEmailDisplay" class="text-[12px] text-primary font-bold mt-1.5 hidden truncate"></p>     
+    </div>      
+    
+    <nav class="px-4 flex flex-col gap-1" id="menuGroup">       
+      <a href="#" onclick="render('subject')" class="menu-item flex items-center gap-4 px-4 py-[10px] rounded text-on-surface-variant hover:bg-secondary-container text-[14px]">         
+        <i data-lucide="house" class="w-5 h-5 text-primary"></i> 홈 (과목별 보기)       
+      </a>       
+      <a href="#" onclick="render('all')" class="menu-item flex items-center gap-4 px-4 py-[10px] rounded text-on-surface-variant hover:bg-secondary-container text-[14px]">         
+        <i data-lucide="clipboard-list" class="w-5 h-5 text-primary"></i> 전체 보기       
+      </a>       
+      <a href="#" onclick="render('etc')" class="menu-item flex items-center gap-4 px-4 py-[10px] rounded text-on-surface-variant hover:bg-secondary-container text-[14px]">         
+        <i data-lucide="pin" class="w-5 h-5 text-primary"></i> 기타 참고 자료       
+      </a>
+      <a href="#" onclick="render('bookmark')" class="menu-item flex items-center gap-4 px-4 py-[10px] rounded text-on-surface-variant hover:bg-secondary-container text-[14px]">         
+        <i data-lucide="star" class="w-5 h-5 text-primary"></i> 즐겨찾기 보관함       
+      </a>
+      <a href="#" id="menuCommunityBtn" onclick="render('community')" class="menu-item flex items-center gap-4 px-4 py-[10px] rounded text-on-surface-variant hover:bg-secondary-container text-[14px]">         
+        <i data-lucide="message-circle" class="w-5 h-5 text-primary"></i> 캠퍼스 커뮤니티       
+      </a>     
+    </nav>     
+    
+    <div class="mx-4 my-3 border-t border-ol-variant"></div>     
+    <div class="px-6 flex justify-between items-center">       
+      <p class="text-[12px] font-semibold text-on-surface-variant uppercase tracking-[0.05em]">내 과목</p>     
+    </div>      
+    
+    <nav id="sidebarSubjectList" class="flex-1 px-4 mt-2 flex flex-col gap-1 overflow-y-auto max-h-[300px]"></nav>      
+    
+    <div class="px-4 py-4 flex flex-col gap-1.5 border-t border-ol-variant mt-auto">       
+      <button onclick="openSubjectModal()" class="w-full flex items-center justify-center gap-3 px-4 py-[8px] rounded border border-dashed border-ol text-on-surface-variant hover:bg-secondary-container text-[13px] font-medium">         
+        <span>＋</span> 과목 추가       
+      </button>       
+      <button onclick="openItemModal()" class="w-full flex items-center justify-center gap-3 px-4 py-[8px] rounded bg-primary text-white text-[13px] font-medium shadow-sm hover:opacity-90">         
+        <span>＋</span> 새 항목 추가       
+      </button>     
+    </div>   
+  </aside>    
+
+  <main class="lg:ml-[280px] min-h-screen flex flex-col">     
+    <header class="sticky top-0 z-10 bg-surface/80 backdrop-blur-md border-b border-ol-variant px-4 md:px-8 lg:px-10 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">       
+      <div class="flex items-center gap-4 flex-1">         
+        <label for="sidebarToggle" class="lg:hidden cursor-pointer text-on-surface text-[24px] leading-none">☰</label>         
+        <div class="flex items-center gap-3">           
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center"><i data-lucide="calendar-days" class="w-7 h-7 text-primary"></i></div>           
+          <div class="flex flex-col">             
+            <span id="liveDateTime" class="text-[14px] md:text-[18px] font-bold text-on-surface leading-none tracking-tight">----년 --월 --일 (-) 오전 00:00:00</span>             
+            <span class="text-[11px] text-on-surface-variant mt-1 hidden md:block">현재 실시간 캠퍼스 타임</span>           
+          </div>         
+        </div>         
+        <div class="ml-4 flex-1 max-w-xs relative hidden md:block" id="headerSearchWrapper">           
+          <input type="text" id="searchInput" oninput="handleSearch()" placeholder="과목 또는 자료 검색..." class="w-full px-3 py-1.5 text-[13px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary">         
+        </div>       
+      </div>       
+      
+      <div class="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-ol-variant">         
+        <button onclick="openCalendarModal()" class="bg-primary text-white text-[13px] font-medium px-3 py-1.5 rounded-lg hover:opacity-90 transition shadow-sm">           
+          <i data-lucide="calendar-days" class="w-4 h-4"></i> 학사 달력         
+        </button>         
+        <div class="flex flex-wrap items-center gap-2 max-w-[400px]">           
+          <div id="ddayListContainer" class="flex flex-wrap items-center gap-2"></div>           
+          <button onclick="openDDayModal()" class="text-[11px] font-bold px-2 py-1.5 rounded-lg bg-surface-c border border-dashed border-ol text-on-surface-variant hover:bg-secondary-container" title="D-Day 추가">             
+            ＋ D-Day           
+          </button>         
+        </div>         
+        <label for="darkToggle" class="flex items-center gap-3 cursor-pointer select-none shrink-0 ml-1">           
+          <span class="text-[16px]">☀️</span>           
+          <div class="toggle-track"><div class="toggle-dot"></div></div>           
+          <span class="text-[16px]">🌙</span>         
+        </label>       
+      </div>     
+    </header>      
+    
+    <div class="px-4 pt-4 md:hidden" id="mobileSearchWrapper">       
+      <input type="text" id="mobileSearchInput" oninput="handleSearch(true)" placeholder="과목 또는 자료 검색..." class="w-full px-3 py-2 text-[14px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface">     
+    </div>      
+    
+    <div id="mainDashboardContent" class="max-w-container w-full mx-auto px-4 md:px-8 py-8 flex flex-col gap-8 md:gap-10 flex-1">       
+      
+      <section>         
+        <div class="mb-4">           
+          <h3 class="text-[18px] md:text-[20px] font-semibold text-on-surface">실행할 프로그램</h3>           
+          <p class="text-[13px] text-on-surface-variant mt-0.5">개발 도구 및 학습 프로그램 원클릭 실행 (항목 추가를 통해 내 앱을 이곳에 이어붙일 수 있습니다)</p>         
+        </div>         
+        <div id="appListContainer" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4"></div>       
+      </section>        
+      
+      <section>         
+        <div class="mb-4">           
+          <h3 class="text-[18px] md:text-[20px] font-semibold text-on-surface">연결할 사이트</h3>           
+          <p class="text-[13px] text-on-surface-variant mt-0.5">학교 생활에 필요한 사이트 바로가기</p>         
+        </div>         
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">           
+          <div onclick="launchTarget('https://cyber.mjc.ac.kr/home/mainHome/Form/main')" class="dash-card bg-surface-c-lowest border border-ol-variant rounded-lg p-4 cursor-pointer">             
+            <div class="app-logo-wrap !w-10 !h-10 !rounded-xl !mb-2"><div class="app-logo-fallback !w-7 !h-7 !rounded-lg">M</div></div><h4 class="text-[15px] font-medium text-on-surface">원격강좌/E-Class</h4><p class="text-[12px] text-on-surface-variant mt-1">원격재택수업 사이트</p>           
+          </div>           
+          <div onclick="launchTarget('https://mjc.factchat.bot/auth/sso?ssoPlatformId=5')" class="dash-card bg-surface-c-lowest border border-ol-variant rounded-lg p-4 cursor-pointer">             
+            <div class="app-logo-wrap !w-10 !h-10 !rounded-xl !mb-2"><div class="app-logo-fallback !w-7 !h-7 !rounded-lg">M</div></div><h4 class="text-[15px] font-medium text-on-surface">AI검색(FactChat)</h4><p class="text-[12px] text-on-surface-variant mt-1">멀티LLM 플랫폼 이동</p>           
+          </div>           
+          <div onclick="launchTarget('https://icampus.mjc.ac.kr')" class="dash-card bg-surface-c-lowest border border-ol-variant rounded-lg p-4 cursor-pointer">             
+            <div class="app-logo-wrap !w-10 !h-10 !rounded-xl !mb-2"><div class="app-logo-fallback !w-7 !h-7 !rounded-lg">M</div></div><h4 class="text-[15px] font-medium text-on-surface">ICampus</h4><p class="text-[12px] text-on-surface-variant mt-1">학습 관리 시스템</p>           
+          </div>           
+          <div onclick="launchTarget('https://mail.mjc.ac.kr')" class="dash-card bg-surface-c-lowest border border-ol-variant rounded-lg p-4 cursor-pointer">             
+            <div class="app-logo-wrap !w-10 !h-10 !rounded-xl !mb-2"><div class="app-logo-fallback !w-7 !h-7 !rounded-lg">M</div></div><h4 class="text-[15px] font-medium text-on-surface">MJC Mail</h4><p class="text-[12px] text-on-surface-variant mt-1">명지전문대 웹 메일</p>           
+          </div>           
+          <div onclick="launchTarget('https://mpu.mjc.ac.kr/')" class="dash-card bg-surface-c-lowest border border-ol-variant rounded-lg p-4 cursor-pointer">             
+            <div class="app-logo-wrap !w-10 !h-10 !rounded-xl !mb-2"><div class="app-logo-fallback !w-7 !h-7 !rounded-lg">M</div></div><h4 class="text-[15px] font-medium text-on-surface">SmartCare</h4><p class="text-[12px] text-on-surface-variant mt-1">학생 역량 이력 관리</p>           
+          </div>         
+        </div>       
+      </section>        
+      
+      <section class="flex-1 flex flex-col min-h-0">         
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">           
+          <div>            
+            <h3 id="boardTitle" class="text-[18px] md:text-[20px] font-semibold text-on-surface">저장 자료</h3>             
+            <p class="text-[13px] text-on-surface-variant mt-0.5">클라우드 계정 연동 학습 자료 보드 (좌측 ≡ 핸들을 드래그하여 이동)</p>           
+          </div>           
+          
+          <div class="flex flex-col sm:flex-row items-end sm:items-center gap-2">             
+            <div id="categorySearchBar" class="hidden flex items-center gap-2">
+              <select id="filterSubject" onchange="render(currentMode)" class="px-3 py-1.5 text-[13px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary max-w-[150px] truncate">
+                <option value="all">모든 과목</option>
+              </select>
+              <select id="filterWeek" onchange="render(currentMode)" class="px-3 py-1.5 text-[13px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary max-w-[120px] truncate">
+                <option value="all">모든 주차</option>
+                <option value="상시">상시</option>
+                <option value="1주차">1주차</option><option value="2주차">2주차</option><option value="3주차">3주차</option><option value="4주차">4주차</option>
+                <option value="5주차">5주차</option><option value="6주차">6주차</option><option value="7주차">7주차</option><option value="8주차">8주차</option>
+                <option value="9주차">9주차</option><option value="10주차">10주차</option><option value="11주차">11주차</option><option value="12주차">12주차</option>
+                <option value="13주차">13주차</option><option value="14주차">14주차</option><option value="15주차">15주차</option>
+              </select>
+              <select id="filterSort" onchange="render(currentMode)" class="px-3 py-1.5 text-[13px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary max-w-[120px] truncate">
+                <option value="custom">수동 정렬 (기본)</option>
+                <option value="newest">최신순</option>
+                <option value="oldest">오래된 순</option>
+              </select>
+            </div>
+            
+            <button onclick="restoreDefaultData()" class="px-3 py-1.5 text-[12px] font-bold rounded-lg border border-primary text-primary bg-primary-fixed hover:bg-primary hover:text-white transition-all shadow-sm shrink-0">               
+              🔄 기본 자료 복구             
+            </button>           
+          </div>         
+        </div>         
         
-        <a href="vscode://" class="btn-vscode">💻 VS Code 앱 실행</a>
-        <a href="https://vscode.dev" target="_blank" class="btn-vscode">🌐 웹에서 실행</a>
-    </fieldset>
+        <div id="board" class="w-full flex-1 max-h-[700px] overflow-y-auto pr-2 custom-scrollbar pb-10"></div>       
+      </section>     
+    </div>      
     
-<fieldset>
-<h4>수업 자료</h4>
-<a href="https://dayoung-univ.github.io/Frontend2026-01/OT"class="btn-link" target="_blank">
-    📁 OT 자료
-</a>
+    <div id="mainCommunityContent" class="max-w-container w-full mx-auto px-4 md:px-8 py-8 flex flex-col gap-6 flex-1 hidden">       
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-ol-variant pb-4 gap-4">         
+        <div>           
+          <h2 class="text-[22px] font-bold text-primary tracking-tight">💬 캠퍼스 통합 실시간 광장</h2>           
+          <p class="text-[13px] text-on-surface-variant mt-0.5">학우들과 클린하게 소통하고 과목 강의평을 공유하는 독립 공간입니다.</p>         
+        </div>         
+        <div class="flex bg-surface-c border border-ol-variant p-1 rounded-lg self-start lg:self-center shadow-2sm">           
+          <button onclick="switchCommunityTab('board')" id="tabBtnBoard" class="px-4 py-1.5 text-[13px] font-bold rounded-md bg-primary text-white transition-all">             
+            자유 소통 피드           
+          </button>           
+          <button onclick="switchCommunityTab('review')" id="tabBtnReview" class="px-4 py-1.5 text-[13px] font-bold rounded-md text-on-surface-variant hover:text-on-surface transition-all">             
+            ⭐️ 과목 강의평 보드           
+          </button>         
+        </div>       
+      </div>        
+      
+      <div id="communityBoardSection" class="flex flex-col gap-5">         
+        <div class="bg-surface-c-lowest border border-ol-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm">           
+          <textarea id="communityPostInput" rows="3" placeholder="서로 배려하는 마음으로 글을 작성해 주세요. (초성 욕설, 비속어, 성희롱 등은 글 등록이 원천 차단됩니다)" class="w-full px-4 py-2.5 text-[14px] rounded border border-ol-variant bg-surface-c-low text-on-surface focus:outline-none focus:border-primary resize-none"></textarea>           
+          <div class="flex justify-between items-center">             
+            <span class="text-[11px] text-on-surface-variant">💡 내가 작성한 글만 수정 및 삭제가 가능합니다.</span>             
+            <button onclick="submitCommunityPost()" class="px-5 py-2 text-[13px] font-bold rounded-lg bg-primary text-white hover:opacity-90 transition shadow-sm">               
+              광장에 글 올리기             
+            </button>           
+          </div>         
+        </div>         
+        <div id="communityPostList" class="flex flex-col gap-3.5"></div>       
+      </div>        
+      
+      <div id="communityReviewSection" class="flex flex-col gap-6 hidden">         
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">           
+          <div class="bg-surface-c-lowest border border-ol-variant rounded-xl p-5 flex flex-col gap-4 shadow-sm h-fit">             
+            <h3 class="text-[15px] font-bold text-primary border-b border-ol-variant pb-2">✏️ 별점 평가 및 리뷰 남기기</h3>             
+            <div>               
+              <label class="block text-[12px] font-bold text-on-surface-variant mb-1">내 이수 과목 선택</label>               
+              <select id="reviewSubjectSelect" class="w-full px-3 py-2 text-[13px] rounded border border-ol-variant bg-surface-c-low text-on-surface focus:outline-none focus:border-primary"></select>             
+            </div>             
+            <div>               
+              <label class="block text-[12px] font-bold text-on-surface-variant mb-1">별점 부여 (클릭)</label>               
+              <div class="flex items-center gap-1 text-[24px] select-none">                 
+                <input type="hidden" id="reviewRatingValue" value="5">                 
+                <span onclick="setStarRating(1)" class="star-icon cursor-pointer text-amber-500">★</span>                 
+                <span onclick="setStarRating(2)" class="star-icon cursor-pointer text-amber-500">★</span>                 
+                <span onclick="setStarRating(3)" class="star-icon cursor-pointer text-amber-500">★</span>                 
+                <span onclick="setStarRating(4)" class="star-icon cursor-pointer text-amber-500">★</span>                 
+                <span onclick="setStarRating(5)" class="star-icon cursor-pointer text-amber-500">★</span>                 
+                <span id="reviewRatingText" class="text-[13px] font-black text-primary ml-2">5.0 / 5.0</span>               
+              </div>             
+            </div>             
+            <div>               
+              <label class="block text-[12px] font-bold text-on-surface-variant mb-1">한줄평 내용</label>               
+              <input type="text" id="reviewTextInput" placeholder="수업 방식이나 과제 꿀팁을 솔직하게 적어보세요." class="w-full px-3 py-2.5 text-[13px] rounded border border-ol-variant bg-surface-c-low text-on-surface focus:outline-none focus:border-primary">             
+            </div>             
+            <button onclick="submitLectureReview()" class="w-full bg-primary text-white py-2 rounded-lg text-[13px] font-bold shadow-sm hover:opacity-90 transition-all">               
+              강의평가 완료             
+            </button>           
+          </div>            
+          
+          <div class="lg:col-span-2 flex flex-col gap-4">             
+            <div class="bg-surface-c border border-ol-variant rounded-xl p-4 shadow-2sm">               
+              <h4 class="text-[13px] font-bold text-primary mb-2">📊 등록된 과목별 실시간 평점 요약</h4>               
+              <div id="subjectRatingSummary" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[12px]"></div>             
+            </div>             
+            <div id="lectureReviewList" class="flex flex-col gap-3"></div>           
+          </div>         
+        </div>       
+      </div>     
+    </div>   
+  </main>    
+  
+  <div id="subjectModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">     
+    <div class="bg-surface rounded-xl max-w-sm w-full p-6 shadow-xl border border-ol-variant mx-4">       
+      <div class="flex justify-between items-center mb-4">         
+        <h3 class="text-[16px] font-bold text-on-surface">새 과목 추가</h3>         
+        <button onclick="closeSubjectModal()" class="text-[18px] text-on-surface-variant hover:text-on-surface">&times;</button>       
+      </div>       
+      <div class="flex flex-col gap-4">         
+        <div>           
+          <label class="block text-[12px] font-semibold text-on-surface-variant uppercase mb-1">과목명 *</label>           
+          <input type="text" id="newSubjectName" placeholder="예: 게임그래픽 기초" class="w-full px-3 py-2 text-[14px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary">         
+        </div>         
+        <div class="flex gap-2 justify-end mt-2">           
+          <button onclick="closeSubjectModal()" class="px-4 py-2 text-[13px] font-medium rounded border border-ol-variant bg-surface-c-lowest text-on-surface hover:bg-secondary-container">취소</button>           
+          <button onclick="addSubject()" class="px-4 py-2 text-[13px] font-medium rounded bg-primary text-white hover:opacity-90">추가하기</button>         
+        </div>       
+      </div>     
+    </div>   
+  </div>    
 
-<a href="po-coedit:///?fi=10102542273821&dt=.pdf&co=3&st=0"class="btn-link" target="_blank">
-    📁 마크다운 작성방법 참고자료
-</a>
+  <div id="itemModal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden backdrop-blur-sm">
+    <div class="bg-surface rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-ol-variant mx-4 max-h-[90vh] flex flex-col">
+      <div class="flex justify-between items-center mb-4 shrink-0 border-b border-ol-variant pb-3">
+        <h3 class="text-[18px] font-bold text-on-surface">새 항목 추가</h3>
+        <button onclick="closeItemModal()" class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg hover:bg-surface-c transition-colors"><i data-lucide="x" class="w-6 h-6"></i></button>
+      </div>
+      
+      <div class="flex-1 overflow-y-auto pr-2 flex flex-col gap-4">
+        <div>
+          <label class="block text-[13px] font-bold text-on-surface mb-2">유형 선택</label>
+          <div class="grid grid-cols-2 gap-2">
+            <button id="typeBtn_web" onclick="selectItemType('web')" class="flex flex-col items-start justify-center p-3 rounded-xl border-2 border-primary bg-primary text-white transition-all text-left">
+              <div class="flex items-center gap-3 mb-1"><i data-lucide="globe" class="w-5 h-5"></i><span class="text-[14px] font-bold">웹사이트</span></div>
+              <span class="text-[11px] opacity-80">웹사이트 URL 링크</span>
+            </button>
+            <button id="typeBtn_file" onclick="selectItemType('file')" class="flex flex-col items-start justify-center p-3 rounded-xl border-2 border-surface-c bg-surface-c-lowest text-on-surface-variant hover:border-primary hover:text-primary transition-all text-left">
+              <div class="flex items-center gap-3 mb-1"><i data-lucide="file-text" class="w-5 h-5"></i><span class="text-[14px] font-bold">파일</span></div>
+              <span class="text-[11px] opacity-80">파일 정보 기록</span>
+            </button>
+            <button id="typeBtn_app" onclick="selectItemType('app')" class="flex flex-col items-start justify-center p-3 rounded-xl border-2 border-surface-c bg-surface-c-lowest text-on-surface-variant hover:border-primary hover:text-primary transition-all text-left">
+              <div class="flex items-center gap-3 mb-1"><i data-lucide="monitor" class="w-5 h-5"></i><span class="text-[14px] font-bold">앱</span></div>
+              <span class="text-[11px] opacity-80">프로그램 바로가기</span>
+            </button>
+            <button id="typeBtn_video" onclick="selectItemType('video')" class="flex flex-col items-start justify-center p-3 rounded-xl border-2 border-surface-c bg-surface-c-lowest text-on-surface-variant hover:border-primary hover:text-primary transition-all text-left">
+              <div class="flex items-center gap-3 mb-1"><i data-lucide="play-square" class="w-5 h-5"></i><span class="text-[14px] font-bold">영상</span></div>
+              <span class="text-[11px] opacity-80">영상 URL 링크</span>
+            </button>
+          </div>
+        </div>
 
-<a href="https://dayoung-univ.github.io/Frontend2026-01/week3"class="btn-link" target="_blank">
-    📁 3주차 수업 자료-HTML Form & UI 기획
-</a>
+        <div>
+          <label class="block text-[13px] font-bold text-on-surface mb-1">제목 *</label>
+          <input type="text" id="newItemTitle" placeholder="항목 제목을 입력하세요" class="w-full px-3 py-2 text-[14px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+        </div>
 
-<a href="https://dayoung-univ.github.io/Frontend2026-01/week4"class="btn-link" target="_blank">
-    📁 4주차 수업 자료-CSS 스타일링 & GitHub 배포
-</a>
+        <div>
+          <label class="block text-[13px] font-bold text-on-surface mb-1">설명 <span class="text-on-surface-variant font-normal">(선택)</span></label>
+          <textarea id="newItemDesc" rows="2" placeholder="간단한 설명을 입력하세요 (앱인 경우 'C# IDE' 등 짧게 적어주세요)" class="w-full px-3 py-2 text-[14px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"></textarea>
+        </div>
 
-<a href="https://dayoung-univ.github.io/Frontend2026-01/week5"class="btn-link" target="_blank">
-    📁 5주차 수업 자료-CSS Layout & 팀 협업
-</a>
+        <div id="newItemUrlWrapper">
+          <label class="block text-[13px] font-bold text-on-surface mb-1">경로/URL</label>
+          <input type="text" id="newItemLink" placeholder="https://..." class="w-full px-3 py-2 text-[14px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+        </div>
 
-<a href="https://dayoung-univ.github.io/Frontend2026-01/week6"class="btn-link" target="_blank">
-    📁 6주차 수업 자료-Flexbox & 반응형 웹
-</a>
+        <div id="newItemFileWrapper" class="hidden">
+          <label class="block text-[13px] font-bold text-on-surface mb-1">파일 업로드</label>
+          <input type="file" id="newItemFile" class="w-full text-[13px] text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-[13px] file:font-bold file:bg-primary-fixed file:text-primary hover:file:bg-primary-container hover:file:text-white transition-all cursor-pointer border border-dashed border-ol-variant p-2 bg-surface-c-lowest">
+          
+          <div id="uploadProgressWrapper" class="hidden mt-2">
+            <div class="flex justify-between text-[11px] font-bold text-primary mb-1">
+              <span>파일 서버 전송 중...</span>
+              <span id="uploadPercent" class="text-right">0%</span>
+            </div>
+            <div class="w-full bg-surface-c rounded-full h-1.5 overflow-hidden">
+              <div id="uploadProgressBar" class="bg-primary h-1.5 rounded-full progress-bar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="subjectWeekRow" class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[13px] font-bold text-on-surface mb-1">과목 *</label>
+            <select id="newItemSubject" class="w-full px-3 py-2 text-[13px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary"></select>
+          </div>
+          <div>
+            <label class="block text-[13px] font-bold text-on-surface mb-1">주차</label>
+            <select id="newItemWeek" class="w-full px-3 py-2 text-[13px] rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary">
+              <option value="상시">상시</option>
+              <option value="1주차">1주차</option><option value="2주차">2주차</option><option value="3주차">3주차</option><option value="4주차">4주차</option>
+              <option value="5주차">5주차</option><option value="6주차">6주차</option><option value="7주차">7주차</option><option value="8주차">8주차</option>
+              <option value="9주차">9주차</option><option value="10주차">10주차</option><option value="11주차">11주차</option><option value="12주차">12주차</option>
+              <option value="13주차">13주차</option><option value="14주차">14주차</option><option value="15주차">15주차</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-2 justify-end mt-4 pt-4 border-t border-ol-variant shrink-0">
+        <button onclick="closeItemModal()" class="px-5 py-2.5 text-[13px] font-bold rounded-lg border border-ol-variant bg-surface-c-lowest text-on-surface hover:bg-secondary-container transition-colors">취소</button>
+        <button onclick="addItem()" class="px-5 py-2.5 text-[13px] font-bold rounded-lg bg-primary text-white hover:opacity-90 transition-opacity shadow-sm">추가하기</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="ddayModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">     
+    <div class="bg-surface rounded-xl max-w-sm w-full p-6 shadow-xl border border-ol-variant mx-4">       
+      <div class="flex justify-between items-center mb-4">         
+        <h3 class="text-[16px] font-bold text-on-surface">새 D-Day 목표 설정</h3>         
+        <button onclick="closeDDayModal()" class="text-[18px] text-on-surface-variant hover:text-on-surface">&times;</button>       
+      </div>       
+      <div class="flex flex-col gap-4">         
+        <div>           
+          <label class="block text-[12px] font-semibold text-on-surface-variant uppercase mb-1">일정 제목 *</label>           
+          <input type="text" id="newDDayTitle" placeholder="예: 팀 프로젝트 마감" class="w-full px-3 py-2 text-[14px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary">         
+        </div>         
+        <div>           
+          <label class="block text-[12px] font-semibold text-on-surface-variant uppercase mb-1">목표 마감일 *</label>           
+          <input type="date" id="newDDayDate" class="w-full px-3 py-2 text-[14px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary">         
+        </div>         
+        <div class="flex gap-2 justify-end mt-2">           
+          <button onclick="closeDDayModal()" class="px-4 py-2 text-[13px] font-medium rounded border border-ol-variant bg-surface-c-lowest text-on-surface hover:bg-secondary-container">취소</button>           
+          <button onclick="addDDayEvent()" class="px-4 py-2 text-[13px] font-medium rounded bg-primary text-white hover:opacity-90">추가하기</button>         
+        </div>       
+      </div>     
+    </div>   
+  </div>    
+
+  <div id="calendarModal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden">     
+    <div class="bg-surface rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-ol-variant mx-4 flex flex-col max-h-[90vh]">       
+      <div class="flex justify-between items-center border-b border-ol-variant pb-3 mb-4">         
+        <div class="flex items-center gap-3">           
+          <button onclick="moveCalendarMonth(-1)" class="px-2 py-1 border border-ol-variant rounded bg-surface-c hover:bg-secondary-container text-[12px]">◀</button>           
+          <h3 id="calendarMonthTitle" class="text-[16px] font-bold text-on-surface min-w-[90px] text-center">----년 --월</h3>           
+          <button onclick="moveCalendarMonth(1)" class="px-2 py-1 border border-ol-variant rounded bg-surface-c hover:bg-secondary-container text-[12px]">▶</button>         
+        </div>         
+        <button onclick="closeCalendarModal()" class="text-[20px] font-medium text-on-surface-variant hover:text-on-surface">&times;</button>       
+      </div>       
+      <div class="grid grid-cols-7 gap-1 text-center font-bold text-[11px] text-on-surface-variant uppercase mb-2">         
+        <div class="text-red-500">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div class="text-blue-500">토</div>       
+      </div>       
+      <div id="calendarGrid" class="grid grid-cols-7 gap-1 flex-1 overflow-y-auto"></div>       
+      <div id="calendarDetailsBox" class="border-t border-ol-variant mt-4 pt-3 hidden">         
+        <div class="flex justify-between items-center mb-2">           
+          <h4 id="selectedDateHeader" class="text-[13px] font-bold text-primary">----년 --월 --일 일정 정보</h4>           
+          <button onclick="openAddPersonalEventPrompt()" class="text-[11px] px-2 py-1 bg-primary text-white rounded hover:opacity-90 font-medium">＋ 개인 일정 등록</button>         
+        </div>         
+        <div id="selectedDateDetailsContainer" class="flex flex-col gap-1.5 max-h-[120px] overflow-y-auto text-[12px]"></div>       
+      </div>     
+    </div>   
+  </div>    
+
+  <script>     
+    const ADMIN_EMAIL = '2026104274yoonhyukjin@gmail.com'; 
     
-<a href="https://dayoung-univ.github.io/Frontend2026-01/week7"class="btn-link" target="_blank">
-    📁 7주차 수업 자료-웹 디자인의 완성
-</a>
-</fieldset>
+    function validateContent(text) {       
+      const bannedWords = [         
+        "ㅅㅂ", "ㅗ", "ㅅㅅ", "ㅄ", "ㅂㅅ", "ㄲㅈ", "ㅈㄹ", "ㅁㅊ",         
+        "시발", "씨발", "개새끼", "존나", "병신", "지랄", "뻐큐", "fuck", "ㅄㅅㄲ",         
+        "새끼", "느금마", "미친년", "미친놈", "좆", "새키", "씨팔", "썅",          
+        "개년", "씹", "애미", "애비", "창녀", "qt", "qt", "븅신", "비융신", "벼엉신", "나가뒤져", "뒈져",         
+        "섹스", "자지", "보지", "한남", "김치녀", "맘충", "틀딱", "재기해", "니미"      
+      ];              
+      const cleanedText = text.replace(/\s+/g, "");        
+      for (let i = 0; i < bannedWords.length; i++) {         
+        if (text.includes(bannedWords[i]) || cleanedText.includes(bannedWords[i])) {           
+          alert("⚠️ 알림: 비속어, 초성 욕설, 성희롱 등 커뮤니티 가이드라인에 위배되는 단어가 포함되어 글 등록이 차단되었습니다.");           
+          return false;         
+        }       
+      }       
+      return true;     
+    }      
+    
+    let currentUser = null;     
+    let subjects = [];     
+    let data = [];     
+    let ddayList = [];     
+    let personalEvents = [];
+    let apps = [];      
+    let bookmarkOrder = [];
+    let allOrder = []; // ✅ 전체 보기 전용 독립 순서 배열 추가
 
-<fieldset>
-    <h4>QuizN 복습 링크</h4>
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=589372"class="btn-link" target="_blank">
-    📁 1주차 복습 Web은 어떻게 움직일까?
-</a>
+    let currentMode = 'subject'; 
+    let searchQuery = ''; 
+    let calDate = new Date(); 
+    let selectedDateStr = '';
+    let activeReviewFilter = null;      
+    
+    // UI 포커스 상태 유지 관리 변수
+    let activeInputId = null;
+    let activeInputValue = "";
+    let activeInputCursor = 0;
+    const openSections = new Set();
+    
+    document.addEventListener('focusin', e => { 
+        if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+            activeInputId = e.target.id; 
+            activeInputValue = e.target.value; 
+        }
+    });
+    document.addEventListener('input', e => { 
+        if(e.target.id === activeInputId) {
+            activeInputValue = e.target.value; 
+            try { activeInputCursor = e.target.selectionStart; } catch(err){}
+        }
+    });
+    document.addEventListener('focusout', e => { 
+        if(e.target.id === activeInputId) activeInputId = null; 
+    });
 
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=755453"class="btn-link" target="_blank">
-    📁 2주차 복습 HTML
-</a>
+    function restoreFocus() {
+        if(activeInputId) { 
+            const el = document.getElementById(activeInputId); 
+            if(el) { 
+                el.focus(); 
+                el.value = activeInputValue; 
+                try { el.setSelectionRange(activeInputCursor, activeInputCursor); } catch(err){}
+            } 
+        }
+    }
 
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=592993"class="btn-link" target="_blank">
-    📁 3주차 복습 HTML Form
-</a>
+    const defaultSubjects = ["게임프로그래밍","게임그래픽 기초","객체 지향 프로그래밍", "프론트엔드프로그래밍"];
+    const defaultData = [
+      { id: 1, title: "C# 프로그래밍 첫걸음 (Chapter 01)", week: "1주차", subject: "게임프로그래밍", link: "pdf/ch01.pdf", type: "file" },
+      { id: 2, title: "기본 문법 (Chapter 02)", week: "2주차", subject: "게임프로그래밍", link: "pdf/ch02.pdf", type: "file" },
+      { id: 3, title: "조건문 (Chapter 03)", week: "3주차", subject: "게임프로그래밍", link: "pdf/ch03.pdf", type: "file" },
+      { id: 4, title: "반복문 (Chapter 04)", week: "4주차", subject: "게임프로그래밍", link: "pdf/ch04.pdf", type: "file" },
+      { id: 5, title: "클래스 기본 (Chapter 05)", week: "5주차", subject: "게임프로그래밍", link: "pdf/ch05.pdf", type: "file" },
+      { id: 6, title: "메서드 (Chapter 06)", week: "6주차", subject: "게임프로그래밍", link: "pdf/ch06.pdf", type: "file" },
+      { id: 7, title: "상속과 다형성 (Chapter 07)", week: "7주차", subject: "게임프로그래밍", link: "pdf/ch07.pdf", type: "file" },
+      
+      { id: 8, title: "3주차-컵", week: "3주차", subject: "게임그래픽 기초", link: "https://youtu.be/0V7-B76oDb0?si=PeFMPxFw7EPmTvIX", type: "video" },
+      { id: 9, title: "4주차 2차시-접시,스푼", week: "4주차", subject: "게임그래픽 기초", link: "https://youtu.be/v0lMKBo34ds?si=vzMUhstLUf5vWyTm", type: "video" },
+      { id: 10, title: "5주차 1차시-세부편집", week: "5주차", subject: "게임그래픽 기초", link: "https://youtu.be/JWFie9eDkGA?si=SR5KlKnALQNkAJ1U", type: "video" },
+      { id: 11, title: "5주차 2차시-세부편집", week: "5주차", subject: "게임그래픽 기초", link: "https://youtu.be/BPHuUT0zoKI?si=2E8zRt2wzCqVUpap", type: "video" },
+      { id: 12, title: "5주차 3차시-검,철퇴", week: "5주차", subject: "게임그래픽 기초", link: "https://youtu.be/XvxTYsfnPpI", type: "video" },
+      { id: 13, title: "6주차 1차시-Allign Pivot", week: "6주차", subject: "게임그래픽 기초", link: "https://youtu.be/KA9KfMoQhTg?si=pnl3XBBT_rgUec8K", type: "video" },
+      { id: 14, title: "6주차 2차시-Allign Pivot", week: "6주차", subject: "게임그래픽 기초", link: "https://youtu.be/DL9LDpRodEg", type: "video" },
+      { id: 15, title: "6주차 3차시-Reset X Form", week: "6주차", subject: "게임그래픽 기초", link: "https://youtu.be/l6c1epTtNVk?si=9LZOjTp8TjOGZvCa", type: "video" },
+      { id: 16, title: "7주차 1차시-캐릭터(몸통)", week: "7주차", subject: "게임그래픽 기초", link: "https://youtu.be/oy9rC6YQwfQ?si=iIa3w4etvMySTjXi", type: "video" },
+      { id: 17, title: "7주차 2차시-캐릭터(팔)", week: "7주차", subject: "게임그래픽 기초", link: "https://youtu.be/tt-hxXzbWu8?si=zoXrVXOO1LYpQBLW", type: "video" },
+      { id: 18, title: "7주차 3차시-캐릭터(다리,이빨)", week: "7주차", subject: "게임그래픽 기초", link: "https://youtu.be/n9sNFonoh4g?si=fC5kPi6sG7FPzMVS", type: "video" },
+      { id: 19, title: "10주차 1차시-인체 캐릭터 특징분석", week: "10주차", subject: "게임그래픽 기초", link: "https://youtu.be/IEzmA-YC7bs?si=AUfPz_gkkBLHrNdx", type: "video" },
+      { id: 20, title: "10주차 2차시-인체(몸통)", week: "10주차", subject: "게임그래픽 기초", link: "https://youtu.be/m-Mxw36Ybjk?si=adOxKKQ5pC4pPPmL", type: "video" },
+      { id: 21, title: "10주차 3차시-인체(팔,다리)", week: "10주차", subject: "게임그래픽 기초", link: "https://youtu.be/TgfCel9AQlI?si=LfxVTI1xvs_B8Gcc", type: "video" },
+      { id: 22, title: "12주차 1차시-인체(손,발)", week: "12주차", subject: "게임그래픽 기초", link: "https://youtu.be/qHTTJ7woLNg", type: "video" },
+      
+      { id: 23, title: "1장 Java 프로그래밍 언어의 특징", week: "1주차", subject: "객체 지향 프로그래밍", link: "pdf/Java_프로그래밍_1주차_강의노트.pdf", type: "file" },
+      { id: 24, title: "2장-자료형", week: "2주차", subject: "객체 지향 프로그래밍", link: "pdf/2장_자료형.pdf", type: "file" },
+      { id: 25, title: "3장 연산자", week: "3주차", subject: "객체 지향 프로그래밍", link: "pdf/3장_연산자.pdf", type: "file" },
+      { id: 26, title: "4장-제어문과 제어키워드", week: "4주차", subject: "객체 지향 프로그래밍", link: "pdf/4장_제어문과_제어키워드.pdf", type: "file" },
+      { id: 27, title: "5장-참조자료형", week: "5주차", subject: "객체 지향 프로그래밍", link: "pdf/5장_참조자료형.pdf", type: "file" },
+      { id: 28, title: "6장-클래스(class)의_기본_문법", week: "6주차", subject: "객체 지향 프로그래밍", link: "pdf/6장_클래스(class)의_기본_문법.pdf", type: "file" },
+      { id: 29, title: "7장-클래스 내부 구성요소", week: "7주차", subject: "객체 지향 프로그래밍", link: "pdf/7장_클래스_내부_구성요소_1_(필드메서드생성자).pdf", type: "file" },
+      { id: 30, title: "8장-클래스의 외부 구성요소", week: "8주차", subject: "객체 지향 프로그래밍", link: "pdf/8장_클래스의_외부_구성요소_(package_import_외부클래스).pdf", type: "file" },
+      { id: 31, title: "9장-자바제어자(modifier)_1", week: "9주차", subject: "객체 지향 프로그래밍", link: "pdf/9장__자바제어자(modifier)_1._(접근지정자_static).pdf", type: "file" },
+      
+      { id: 32, title: "OT 자료", week: "상시", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/OT", type: "web" },
+      { id: 33, title: "마크다운 작성방법 참고자료", week: "상시", subject: "프론트엔드프로그래밍", link: "pdf/마크다운_보충자료.pdf", type: "file" },
+      { id: 34, title: "3주차 수업 자료-HTML Form & UI", week: "3주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week3", type: "web" },
+      { id: 35, title: "4주차 수업 자료-CSS 스타일링 & GitHub 배포", week: "4주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week4", type: "web" },
+      { id: 36, title: "5주차 수업 자료-CSS Layout & 팀 협업", week: "5주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week5", type: "web" },
+      { id: 37, title: "6주차 수업 자료-Flexbox & 반응형 웹", week: "6주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week6", type: "web" },
+      { id: 38, title: "7주차 수업 자료-Grid 레이아웃 & 동적 애니메이션", week: "7주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week7", type: "web" },
+      { id: 39, title: "10주차 수업 자료-실전 팀 빌딩 & README 기반 Git 협업", week: "10주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week10", type: "web" },
+      { id: 40, title: "11주차 수업 자료-개발 착수 & MVP 기반 태스크 관리", week: "11주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week11", type: "web" },
+      { id: 41, title: "12주차 수업 자료-MVP 통합 및 알파 버전 완성", week: "12주차", subject: "프론트엔드프로그래밍", link: "https://dayoung-univ.github.io/Frontend2026-01/week12", type: "web" },
+      { id: 42, title: "13주차 수업 자료-알파 테스트 피드백 보드", week: "13주차", subject: "프론트엔드프로그래밍", link: "https://www.figma.com/board/XTQk7MT9MuRqokMwAeNRS2/%ED%94%BC%EB%93%9C%EB%B0%B1%EB%B3%B4%EB%93%9C-103-?node-id=0-1&p=f&t=4exAxS5NEkhzxOV3-02", type: "web" }
+      
+    ];
 
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=593372"class="btn-link" target="_blank">
-    📁 4주차 복습 CSS 기초
-</a>
+    const defaultDDayList = [{ id: 1001, title: "기말고사 및 종강", date: "2026-06-15" }];
+   const defaultApps = [
+  { id: 101, title: 'Visual Studio', desc: 'C# / IDE', icon: 'visualstudio', link: 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\devenv.exe' },
+  { id: 102, title: '3ds Max', desc: 'Graphic Tool', icon: '3dsmax', link: 'openmax://' },
+  { id: 103, title: 'Eclipse', desc: 'Java IDE', icon: 'eclipse', link: 'C:\\eclipse\\eclipse.exe' },
+  { id: 104, title: 'VS Code', desc: 'Web / Editor', icon: 'vscode', link: 'C:\\Users\\User\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe' },
+  { id: 105, title: 'MarkText', desc: 'Markdown Editor', icon: 'marktext', link: 'marktext://' },
+  { id: 106, title: 'QuizN', desc: 'Quiz', icon: 'quiz', link: 'https://quizn.show/' }
+];
 
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=775868"class="btn-link" target="_blank">
-    📁 5주차 복습 CSS 박스모델과 배경
-</a>
+    auth.onAuthStateChanged(user => {       
+      const authContainer = document.getElementById('authContainer');       
+      const userStatusBtn = document.getElementById('userStatusBtn');       
+      const userEmailDisplay = document.getElementById('userEmailDisplay');       
+      if (user) {         
+        currentUser = user;         
+        authContainer.classList.add('hidden');         
+        if (userStatusBtn) userStatusBtn.classList.remove('hidden');         
+        if (userEmailDisplay) {           
+          userEmailDisplay.classList.remove('hidden');           
+          userEmailDisplay.innerText = `👤 ${user.email.split('@')[0]} 님`;         
+        }          
+        database.ref('users/' + user.uid).once('value').then(snapshot => {           
+          const val = snapshot.val();           
+          if(val) {             
+            subjects = val.subjects || []; data = val.data || [];             
+            ddayList = val.ddayList || []; personalEvents = val.personalEvents || [];           
+            apps = val.apps || [...defaultApps];
+            bookmarkOrder = val.bookmarkOrder || [];
+            allOrder = val.allOrder || []; // 저장된 전체보기 순서 불러오기
+          } else {             
+            subjects = [...defaultSubjects]; data = [...defaultData];             
+            ddayList = [...defaultDDayList]; personalEvents = [];             
+            apps = [...defaultApps]; bookmarkOrder = []; allOrder = [];
+            saveCurrentStateToFirebase();           
+          }           
+          updateSidebarSubjects(); renderDDayList(); renderApps(); render(currentMode);           
+          initGlobalCommunityListeners();         
+          initGlobalReviewListeners();
+        });       
+      } else {         
+        currentUser = null;         
+        authContainer.classList.remove('hidden');         
+        if (userStatusBtn) userStatusBtn.classList.add('hidden');         
+        if (userEmailDisplay) userEmailDisplay.classList.add('hidden');       
+      }     
+    });      
+    
+    // --- ✅ 딜레이 없는 손잡이(Handle) 전용 드래그 & 완벽한 뷰별 독립 정렬 함수 ---
+    function initCardSortable() {
+      if (typeof Sortable === 'undefined') return;
+      
+      // 커뮤니티 탭에서는 드래그 비활성화
+      if (currentMode === 'community') return;
 
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=780582"class="btn-link" target="_blank">
-    📁 6주차 복습 반응형디자인과 FlexBox
-</a>
+      document.querySelectorAll('.card-list').forEach(el => {
+        new Sortable(el, {
+          // 그룹을 완전히 분리하여 뷰 간 혼선 차단
+          group: currentMode === 'bookmark' ? 'bookmark' : (currentMode === 'all' ? 'all' : (currentMode === 'etc' ? 'etc' : 'shared')), 
+          handle: '.drag-handle', // 핸들(손잡이)을 잡았을 때만 이동
+          animation: 150,
+          fallbackTolerance: 5,
+          ghostClass: 'sortable-ghost',
+          dragClass: 'sortable-drag',
+          onEnd: function (evt) {
+            if (evt.oldIndex === evt.newIndex && evt.from === evt.to) return;
+            
+            // ✅ 1. 즐겨찾기 보관함일 경우: 즐겨찾기 전용 순서(bookmarkOrder)만 저장!
+            if (currentMode === 'bookmark') {
+                const newOrder = [];
+                document.querySelectorAll('#board .kanban-card').forEach(card => {
+                    newOrder.push(Number(card.getAttribute('data-id')));
+                });
+                bookmarkOrder = newOrder;
+                saveCurrentStateToFirebase();
+                return;
+            }
 
-<a href="https://quizn.show/quz/play/tryPinForm.do?showSeq=780807"class="btn-link" target="_blank"> 
-    📁 7주차 복습 Grid와 Transition, Animation
-</a>
+            // ✅ 2. 전체 보기일 경우: 전체보기 전용 순서(allOrder)만 저장! (홈 배열 건드리지 않음)
+            if (currentMode === 'all') {
+                const filterSortEl = document.getElementById('filterSort');
+                if (filterSortEl && filterSortEl.value !== 'custom') {
+                    filterSortEl.value = 'custom';
+                }
 
-</fieldset>
+                const newOrder = [];
+                document.querySelectorAll('#board .kanban-card').forEach(card => {
+                    newOrder.push(Number(card.getAttribute('data-id')));
+                });
+                allOrder = newOrder;
+                saveCurrentStateToFirebase();
+                return; 
+            }
 
- </fieldset>
+            // ✅ 3. 기타 참고 자료 뷰일 경우 (하드코딩 데이터이므로 시각적인 순서만 바뀌게 허용하고 서버에 저장 안함)
+            if (currentMode === 'etc') {
+                return;
+            }
 
+            // ✅ 4. 홈(과목별 보기) 및 과목 단독 보기일 경우: 홈 전용 글로벌 순서 변경
+            const itemEl = evt.item;
+            const itemId = Number(itemEl.getAttribute('data-id'));
+            const fromKey = evt.from.getAttribute('data-filter-key');
+            const toKey = evt.to.getAttribute('data-filter-key');
+            
+            const itemIndex = data.findIndex(x => x.id === itemId);
+            if (itemIndex === -1) return;
+
+            // 과목 간 이동 처리
+            if (fromKey && toKey && fromKey !== toKey) {
+              data[itemIndex].subject = toKey;
+            }
+
+            // 표시된 카드들의 새로운 순서를 글로벌 데이터에 매핑
+            const allVisibleIds = [];
+            document.querySelectorAll('.card-list').forEach(list => {
+              Array.from(list.children).forEach(child => {
+                const id = Number(child.getAttribute('data-id'));
+                if(id) allVisibleIds.push(id);
+              });
+            });
+
+            const originalIndices = [];
+            allVisibleIds.forEach(id => {
+              const idx = data.findIndex(d => d.id === id);
+              if (idx !== -1) originalIndices.push(idx);
+            });
+            originalIndices.sort((a, b) => a - b);
+
+            const itemsToReorder = allVisibleIds.map(id => data.find(d => d.id === id)).filter(Boolean);
+
+            itemsToReorder.forEach((item, i) => {
+              data[originalIndices[i]] = item;
+            });
+
+            saveCurrentStateToFirebase();
+            
+            if (['subject'].includes(currentMode)) {
+              render(currentMode); // 뷰 업데이트
+            } else if (currentMode !== 'community' && currentMode !== 'etc' && currentMode !== 'all' && currentMode !== 'bookmark') {
+              renderSubjectDetail(currentMode);
+            }
+          }
+        });
+      });
+    }
+
+    function getAppLogoHTML(app) {
+      const title = (app.title || '').toLowerCase();
+      const logoMap = [
+        { match: ['visual studio'], src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg', alt: 'Visual Studio' },
+        { match: ['vs code', 'vscode', 'visual studio code'], src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', alt: 'VS Code' },
+        { match: ['eclipse'], src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg', alt: 'Eclipse' },
+        { match: ['github'], src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', alt: 'GitHub' },
+        { match: ['3ds max', '3dsmax', 'max'], src: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/autodesk.svg', alt: 'Autodesk 3ds Max' },
+        { match: ['marktext', 'markdown'], src: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/markdown.svg', alt: 'Markdown' },
+        { match: ['quizn', 'quiz'], src: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quizlet.svg', alt: 'Quiz' }
+      ];
+      const found = logoMap.find(item => item.match.some(keyword => title.includes(keyword)));
+      if (found) {
+        return `<div class="app-logo-wrap"><img src="${found.src}" alt="${found.alt}" onerror="this.outerHTML='<div class=&quot;app-logo-fallback&quot;>${(app.title || 'A').charAt(0).toUpperCase()}</div>'"></div>`;
+      }
+      return `<div class="app-logo-wrap"><div class="app-logo-fallback">${(app.title || 'A').charAt(0).toUpperCase()}</div></div>`;
+    }
+
+    function renderApps() {
+      const container = document.getElementById('appListContainer');
+      if(!container) return;
+      container.innerHTML = '';
+      apps.forEach(app => {
+        const safeLink = (app.link || '').replace(/\\/g, '\\\\');
+        container.innerHTML += `
+          <div class="dash-card bg-surface-c-lowest border border-ol-variant rounded-lg p-4 cursor-pointer flex flex-col items-center text-center relative group">
+            <button onclick="removeApp(${app.id}, event)" class="absolute top-1 right-2 opacity-0 group-hover:opacity-100 text-error text-[12px] font-bold p-1 hover:scale-125 transition-all">✕</button>
+            <div onclick="launchTarget('${safeLink}')" class="w-full flex flex-col items-center">
+              ${getAppLogoHTML(app)}
+              <h4 class="text-[14px] font-medium text-on-surface">${app.title}</h4>
+              <p class="text-[12px] text-on-surface-variant mt-0.5">${app.desc || 'App'}</p>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function removeApp(id, event) {
+      if(event) event.stopPropagation();
+      if(confirm('이 앱 바로가기를 삭제하시겠습니까?')) {
+        apps = apps.filter(x => x.id !== id);
+        saveCurrentStateToFirebase();
+        renderApps();
+      }
+    }
+
+    function _relTime(ts) {
+      if (!ts) return '';
+      const diff = Date.now() - ts;
+      const s = Math.floor(diff / 1000);
+      if (s < 60) return s + '초 전';
+      const m = Math.floor(s / 60);
+      if (m < 60) return m + '분 전';
+      const h = Math.floor(m / 60);
+      if (h < 24) return h + '시간 전';
+      return new Date(ts).toLocaleDateString('ko-KR');
+    }
+
+    // ==========================================
+    // 공통 커뮤니티 함수 (강의평가, 소통 피드 통합)
+    // ==========================================
+    
+    function toggleLikeGen(path) {
+        if (!currentUser) { alert('로그인 후 이용 가능합니다.'); return; }
+        const ref = database.ref(path + '/likes/' + currentUser.uid);
+        ref.once('value').then(snap => { if(snap.exists()) ref.remove(); else ref.set(true); });
+    }
+
+    function editNode(path, oldText) {
+        const edited = prompt("내용을 수정해 주세요:", oldText);
+        if(edited === null) return;
+        const finalEdited = edited.trim();
+        if(!finalEdited) { alert("공백은 등록 불가합니다."); return; }
+        if(!validateContent(finalEdited)) return;
+        database.ref(path).set(finalEdited);
+    }
+
+    function deleteNode(path) {
+        if(confirm("이 항목을 삭제하시겠습니까?")) database.ref(path).remove();
+    }
+
+    function toggleNestedInput(id) {
+        if(openSections.has(id)) openSections.delete(id);
+        else openSections.add(id);
+        const el = document.getElementById('nested_input_' + id);
+        if(el) {
+            if(openSections.has(id)) el.classList.remove('hidden');
+            else el.classList.add('hidden');
+        }
+    }
+
+    function submitNestedReply(parentPath, inputId) {
+        if (!currentUser) { alert('로그인 후 이용 가능합니다.'); return; }
+        const input = document.getElementById('nested_input_val_' + inputId);
+        if(!input || !input.value.trim()) return;
+        const text = input.value.trim();
+        if(!validateContent(text)) return;
+        const nickname = (currentUser.displayName) || currentUser.email.split('@')[0] + ' 학우';
+        database.ref(parentPath + '/nested').push({
+            uid: currentUser.uid, nickname: nickname, text: text, timestamp: firebase.database.ServerValue.TIMESTAMP
+        }).then(() => { input.value = ''; });
+    }
+
+    function submitMainReply(basePath, inputId) {
+         if (!currentUser) { alert('로그인 후 이용 가능합니다.'); return; }
+         const input = document.getElementById(inputId);
+         if(!input || !input.value.trim()) return;
+         const text = input.value.trim();
+         if(!validateContent(text)) return;
+         const nickname = (currentUser.displayName) || currentUser.email.split('@')[0] + ' 학우';
+         database.ref(basePath + '/replies').push({
+             uid: currentUser.uid, nickname: nickname, text: text, timestamp: firebase.database.ServerValue.TIMESTAMP
+         }).then(() => { input.value = ''; });
+    }
+
+    // 댓글 및 대댓글 렌더링 HTML 생성 헬퍼
+    function renderReplies(basePath, repliesObj, parentKey) {
+        let html = '';
+        const entries = repliesObj ? Object.entries(repliesObj).sort((a,b) => a[1].timestamp - b[1].timestamp) : [];
+        entries.forEach(([rKey, r]) => {
+            const isAuthor = currentUser && currentUser.uid === r.uid;
+            const isAdmin = currentUser && currentUser.email === ADMIN_EMAIL;
+            const rPath = `${basePath}/replies/${rKey}`;
+
+            const likeCount = r.likes ? Object.keys(r.likes).length : 0;
+            const liked = currentUser && r.likes && r.likes[currentUser.uid];
+            const likeColor = liked ? 'text-rose-500 font-black' : 'text-on-surface-variant font-medium';
+
+            let nestedHtml = '';
+            const nestedEntries = r.nested ? Object.entries(r.nested).sort((a,b) => a[1].timestamp - b[1].timestamp) : [];
+            nestedEntries.forEach(([nKey, n]) => {
+                const isNAuthor = currentUser && currentUser.uid === n.uid;
+                const isNAdmin = currentUser && currentUser.email === ADMIN_EMAIL;
+                const nPath = `${rPath}/nested/${nKey}`;
+                
+                const nLikeCount = n.likes ? Object.keys(n.likes).length : 0;
+                const nLiked = currentUser && n.likes && n.likes[currentUser.uid];
+                const nLikeColor = nLiked ? 'text-rose-500 font-black' : 'text-on-surface-variant font-medium';
+
+                nestedHtml += `
+                    <div class="flex items-start gap-2 py-1.5 pl-6 border-t border-ol-variant/20 mt-1 bg-surface-c/10">
+                        <span class="text-[11px] font-bold text-primary shrink-0">↳ ${n.nickname}</span>
+                        <span class="text-[12px] text-on-surface flex-1 break-words leading-relaxed">${n.text}</span>
+                        <div class="flex flex-col items-end gap-1 shrink-0 ml-2">
+                            <span class="text-[10px] text-on-surface-variant opacity-50">${_relTime(n.timestamp)}</span>
+                            <div class="flex items-center gap-1.5">
+                                <button onclick="toggleLikeGen('${nPath}')" class="text-[10px] ${nLikeColor} hover:scale-110 transition-transform">❤️ ${nLikeCount}</button>
+                                ${(isNAuthor) ? `<button onclick="editNode('${nPath}/text', \`${n.text.replace(/`/g,'\\`')}\`)" class="text-[10px] text-primary hover:underline">수정</button>` : ''}
+                                ${(isNAuthor || isNAdmin) ? `<button onclick="deleteNode('${nPath}')" class="text-[10px] text-error hover:underline">삭제</button>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="flex flex-col py-2 border-b border-ol-variant/20 last:border-0">
+                    <div class="flex items-start gap-2">
+                        <span class="text-[11px] font-bold text-primary shrink-0">💬 ${r.nickname}</span>
+                        <span class="text-[12px] text-on-surface flex-1 break-words leading-relaxed">${r.text}</span>
+                        <div class="flex flex-col items-end gap-1 shrink-0 ml-2">
+                            <span class="text-[10px] text-on-surface-variant opacity-50">${_relTime(r.timestamp)}</span>
+                            <div class="flex items-center gap-1.5">
+                                <button onclick="toggleLikeGen('${rPath}')" class="text-[10px] ${likeColor} hover:scale-110 transition-transform">❤️ ${likeCount}</button>
+                                <button onclick="toggleNestedInput('${parentKey}_${rKey}')" class="text-[10px] text-on-surface-variant hover:text-primary font-bold">답글</button>
+                                ${(isAuthor) ? `<button onclick="editNode('${rPath}/text', \`${r.text.replace(/`/g,'\\`')}\`)" class="text-[10px] text-primary hover:underline">수정</button>` : ''}
+                                ${(isAuthor || isAdmin) ? `<button onclick="deleteNode('${rPath}')" class="text-[10px] text-error hover:underline">삭제</button>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="nested_input_${parentKey}_${rKey}" class="${openSections.has(parentKey+'_'+rKey) ? 'flex' : 'hidden'} items-center gap-2 mt-1 pl-6">
+                        <input id="nested_input_val_${parentKey}_${rKey}" type="text" placeholder="대댓글 입력..." class="flex-1 px-2 py-1 text-[11px] rounded border border-ol-variant bg-surface-c-lowest text-on-surface focus:outline-none focus:border-primary" onkeydown="if(event.key==='Enter'){submitNestedReply('${rPath}', '${parentKey}_${rKey}');}">
+                        <button onclick="submitNestedReply('${rPath}', '${parentKey}_${rKey}')" class="px-2 py-1 text-[11px] font-bold rounded bg-surface-dim hover:bg-surface-c transition shrink-0">등록</button>
+                    </div>
+                    ${nestedHtml}
+                </div>
+            `;
+        });
+        return html || '<p class="text-[12px] text-on-surface-variant opacity-60 py-2 text-center">아직 댓글이 없습니다. 첫 댓글을 남겨보세요!</p>';
+    }
+
+    // 커뮤니티 피드 렌더링
+    let globalCommunityData = null;
+    function initGlobalCommunityListeners() {
+        database.ref('global_community').on('value', snap => {
+            globalCommunityData = snap.val();
+            renderCommunityUI();
+        });
+    }
+
+    function renderCommunityUI() {
+        const container = document.getElementById('communityPostList');
+        if(!container) return;
+        container.innerHTML = '';
+        
+        const posts = globalCommunityData;
+        if(!posts) {
+            container.innerHTML = '<p class="text-center text-[13px] text-on-surface-variant py-10 bg-surface-c-lowest border border-dashed border-ol-variant rounded-xl">캠퍼스 광장이 비어있습니다. 첫 글을 등록해보세요! 🚀</p>';
+            return;
+        }
+        const sortedKeys = Object.keys(posts).sort((a,b) => posts[b].timestamp - posts[a].timestamp);
+        
+        let htmlBuffer = '';
+        sortedKeys.forEach(key => {
+            const post = posts[key];
+            const basePath = 'global_community/' + key;
+            const isAuthor = currentUser && currentUser.uid === post.uid;
+            const isAdmin = currentUser && currentUser.email === ADMIN_EMAIL;
+            
+            let actions = '';
+            if (isAuthor) {
+                actions = `<button onclick="editCommunityPost('${key}', \`${post.content.replace(/`/g,'\\`')}\`)" class="text-[11px] text-primary hover:underline font-semibold">수정</button><button onclick="deleteCommunityPost('${key}')" class="text-[11px] text-error hover:underline font-semibold ml-2">삭제</button>`;
+            } else if (isAdmin) {
+                actions = `<button onclick="deleteCommunityPost('${key}')" class="text-[11px] text-error font-bold hover:underline">강제 삭제 🗑️</button>`;
+            }
+
+            const likeCount = post.likes ? Object.keys(post.likes).length : 0;
+            const liked = currentUser && post.likes && post.likes[currentUser.uid];
+            const likeColor = liked ? 'text-rose-500' : 'text-on-surface-variant';
+            const replyCount = post.replies ? Object.keys(post.replies).length : 0;
+            const timeStr = new Date(post.timestamp).toLocaleString();
+            
+            const repliesHtml = renderReplies(basePath, post.replies, key);
+
+            htmlBuffer += `
+                <div class="bg-surface-c-lowest border border-ol-variant rounded-xl p-4 flex flex-col gap-2 shadow-2sm">
+                    <div class="flex justify-between items-center border-b border-ol-variant/40 pb-1.5">
+                        <div class="flex items-center gap-3">
+                            <span class="text-[13px] font-bold text-primary">👤 ${post.nickname}</span>
+                            <span class="text-[10px] text-on-surface-variant opacity-60">${timeStr}</span>
+                        </div>
+                        <div>${actions}</div>
+                    </div>
+                    <p class="text-[14px] text-on-surface font-medium whitespace-pre-wrap leading-relaxed mt-0.5">${post.content}</p>
+                    
+                    <div class="flex items-center gap-3 pt-1 border-t border-ol-variant/20 mt-1">
+                        <button onclick="toggleLikeGen('${basePath}')" class="flex items-center gap-1 text-[12px] font-semibold px-2 py-1 rounded-lg hover:bg-surface-c transition-colors ${likeColor}">
+                            ❤️ ${likeCount}
+                        </button>
+                        <button onclick="toggleNestedInput('post_replies_${key}')" class="flex items-center gap-1 text-[12px] font-semibold px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-c hover:text-primary transition-colors">
+                            💬 댓글 ${replyCount}개
+                        </button>
+                    </div>
+                    
+                    <div id="nested_input_post_replies_${key}" class="${openSections.has('post_replies_'+key) ? 'flex' : 'hidden'} flex-col gap-2 pt-2 border-t border-ol-variant/20 mt-1">
+                        <div class="flex flex-col gap-0.5 max-h-60 overflow-y-auto custom-scrollbar pr-1">${repliesHtml}</div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <input id="reply_in_${key}" type="text" placeholder="댓글을 남겨주세요..." class="flex-1 px-3 py-1.5 text-[13px] rounded-lg border border-ol-variant bg-surface-c-low text-on-surface focus:outline-none focus:border-primary" onkeydown="if(event.key==='Enter'){submitMainReply('${basePath}', 'reply_in_${key}');}">
+                            <button onclick="submitMainReply('${basePath}', 'reply_in_${key}')" class="px-3 py-1.5 text-[12px] font-bold rounded-lg bg-primary text-white hover:opacity-90 transition shrink-0">등록</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = htmlBuffer;
+        restoreFocus(); // 포커스 복원
+    }
+
+    // 강의평가 보드 렌더링
+    let globalReviewsData = null;
+    function initGlobalReviewListeners() {
+        database.ref('global_reviews').on('value', snap => {
+            globalReviewsData = snap.val();
+            renderReviewsUI();
+        });
+    }
+
+    function renderReviewsUI() {
+        const listContainer = document.getElementById('lectureReviewList');
+        const summaryContainer = document.getElementById('subjectRatingSummary');
+        if (!listContainer || !summaryContainer) return;
+        
+        listContainer.innerHTML = ''; summaryContainer.innerHTML = '';
+        const reviews = globalReviewsData;
+        const scores = {}; 
+        subjects.forEach(sub => scores[sub] = { total: 0, count: 0 });
+        
+        if (!reviews) {
+            listContainer.innerHTML = `<p class="text-center text-[13px] text-on-surface-variant py-10 bg-surface-c-lowest border border-dashed border-ol-variant rounded-xl">과목 강의평가가 존재하지 않습니다. 첫 평가를 남겨보세요! ⭐️</p>`;
+        } else {
+            const allKeys = Object.keys(reviews).sort((a,b) => reviews[b].timestamp - reviews[a].timestamp);
+            
+            allKeys.forEach(key => {
+                const rev = reviews[key];
+                if (!scores[rev.subject]) { scores[rev.subject] = { total: 0, count: 0 }; }
+                scores[rev.subject].total += Number(rev.rating); 
+                scores[rev.subject].count += 1; 
+            });
+
+            const fKeys = activeReviewFilter ? allKeys.filter(k => reviews[k].subject === activeReviewFilter) : allKeys;
+            if (activeReviewFilter && fKeys.length === 0) {
+                listContainer.innerHTML = `<p class="text-center text-[13px] text-on-surface-variant py-10 bg-surface-c-lowest border border-dashed border-ol-variant rounded-xl">선택한 과목에 등록된 강의평이 없습니다. ⭐️</p>`;
+            }
+            
+            let htmlBuffer = '';
+            fKeys.forEach(key => {
+                const rev = reviews[key];
+                const basePath = 'global_reviews/' + key;
+                const isAuthor = currentUser && currentUser.uid === rev.uid;
+                const isAdmin = currentUser && currentUser.email === ADMIN_EMAIL;
+                
+                let actions = '';
+                if (isAuthor) {
+                    actions = `<button onclick="editReview('${key}', \`${rev.reviewText.replace(/`/g,'\\`')}\`)" class="text-[11px] text-primary hover:underline font-semibold">수정</button><button onclick="deleteLectureReview('${key}')" class="text-[11px] text-error hover:underline font-semibold ml-2">삭제</button>`;
+                } else if (isAdmin) {
+                    actions = `<button onclick="deleteLectureReview('${key}')" class="text-[11px] text-error font-bold hover:underline">강제 삭제 🗑️</button>`;
+                }
+
+                const likeCount = rev.likes ? Object.keys(rev.likes).length : 0;
+                const liked = currentUser && rev.likes && rev.likes[currentUser.uid];
+                const likeColor = liked ? 'text-rose-500' : 'text-on-surface-variant';
+                const replyCount = rev.replies ? Object.keys(rev.replies).length : 0;
+                
+                const st = "★".repeat(rev.rating) + "☆".repeat(5 - rev.rating);
+                const timeStr = new Date(rev.timestamp).toLocaleString();
+                const repliesHtml = renderReplies(basePath, rev.replies, key);
+
+                htmlBuffer += `
+                    <div class="bg-surface-c-lowest border border-ol-variant rounded-xl p-4 flex flex-col gap-2 shadow-2sm">
+                        <div class="flex justify-between items-start border-b border-ol-variant/40 pb-2 mb-1">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[11px] px-2 py-0.5 rounded bg-primary-fixed text-primary font-black">${rev.subject}</span>
+                                    <span class="text-amber-500 font-bold text-[14px] tracking-tight">${st} (${rev.rating}.0)</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[12px] font-bold text-on-surface">👤 ${rev.nickname}</span>
+                                    <span class="text-[10px] text-on-surface-variant opacity-60">${timeStr}</span>
+                                </div>
+                            </div>
+                            <div>${actions}</div>
+                        </div>
+                        <p class="text-[14px] text-on-surface font-medium whitespace-pre-wrap leading-relaxed">${rev.reviewText}</p>
+                        
+                        <div class="flex items-center gap-3 pt-2 border-t border-ol-variant/20 mt-1">
+                            <button onclick="toggleLikeGen('${basePath}')" class="flex items-center gap-1 text-[12px] font-semibold px-2 py-1 rounded-lg hover:bg-surface-c transition-colors ${likeColor}">
+                                ❤️ ${likeCount}
+                            </button>
+                            <button onclick="toggleNestedInput('review_replies_${key}')" class="flex items-center gap-1 text-[12px] font-semibold px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-c hover:text-primary transition-colors">
+                                💬 댓글 ${replyCount}개
+                            </button>
+                        </div>
+
+                        <div id="nested_input_review_replies_${key}" class="${openSections.has('review_replies_'+key) ? 'flex' : 'hidden'} flex-col gap-2 pt-2 border-t border-ol-variant/20 mt-1">
+                            <div class="flex flex-col gap-0.5 max-h-60 overflow-y-auto custom-scrollbar pr-1">${repliesHtml}</div>
+                            <div class="flex items-center gap-2 mt-1">
+                                <input id="reply_in_${key}" type="text" placeholder="의견을 남겨주세요..." class="flex-1 px-3 py-1.5 text-[13px] rounded-lg border border-ol-variant bg-surface-c-low text-on-surface focus:outline-none focus:border-primary" onkeydown="if(event.key==='Enter'){submitMainReply('${basePath}', 'reply_in_${key}');}">
+                                <button onclick="submitMainReply('${basePath}', 'reply_in_${key}')" class="px-3 py-1.5 text-[12px] font-bold rounded-lg bg-primary text-white hover:opacity-90 transition shrink-0">등록</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            listContainer.innerHTML = htmlBuffer;
+        }
+        
+        Object.keys(scores).sort().forEach(sub => {
+            const m = scores[sub];
+            const avg = m && m.count > 0 ? (m.total / m.count).toFixed(1) : "평가 없음";
+            const sT = m && m.count > 0 ? "★".repeat(Math.round(avg)) : "😶";
+            const iA = activeReviewFilter === sub;
+            const aC2 = iA ? "ring-2 ring-primary border-primary bg-primary-fixed/80 cursor-pointer" : "border-ol-variant/60 hover:border-primary hover:bg-surface-c cursor-pointer";
+            summaryContainer.innerHTML += `<div onclick="toggleReviewFilter('${sub}')" class="flex justify-between items-center bg-surface-c-lowest border rounded-lg p-2.5 transition-all ${aC2}" title="${sub} 리뷰만 보기 (재클릭 시 해제)"><span class="font-semibold text-on-surface truncate max-w-[140px]">${sub}</span><span class="flex items-center gap-1 shrink-0"><span class="text-amber-500 font-bold">${sT}</span><span class="text-on-surface-variant font-medium text-[11px]">(${avg})</span>${iA ? '<span class="text-[10px] font-black text-primary ml-1">✕</span>' : ''}</span></div>`;
+        });
+
+        restoreFocus(); // 포커스 복원
+    }
+
+    function switchCommunityTab(tab) {       
+      const bSec = document.getElementById('communityBoardSection'); const rSec = document.getElementById('communityReviewSection');       
+      const bBtn = document.getElementById('tabBtnBoard'); const rBtn = document.getElementById('tabBtnReview');       
+      if(tab === 'board') {         
+        bSec.classList.remove('hidden'); rSec.classList.add('hidden');         
+        bBtn.className = "px-4 py-1.5 text-[13px] font-bold rounded-md bg-primary text-white transition-all shadow-sm";         
+        rBtn.className = "px-4 py-1.5 text-[13px] font-bold rounded-md text-on-surface-variant hover:text-on-surface transition-all";       
+      } else {         
+        bSec.classList.add('hidden'); rSec.classList.remove('hidden');         
+        rBtn.className = "px-4 py-1.5 text-[13px] font-bold rounded-md bg-primary text-white transition-all shadow-sm";         
+        bBtn.className = "px-4 py-1.5 text-[13px] font-bold rounded-md text-on-surface-variant hover:text-on-surface transition-all";         
+        const select = document.getElementById('reviewSubjectSelect'); select.innerHTML = '';         
+        subjects.forEach(s => select.innerHTML += `<option value="${s}">${s}</option>`);       
+        toggleReviewFilter();
+      }     
+    }      
+    
+    function setStarRating(rating) {       
+      document.getElementById('reviewRatingValue').value = rating;       
+      document.getElementById('reviewRatingText').innerText = `${rating}.0 / 5.0`;       
+      document.querySelectorAll('.star-icon').forEach((star, idx) => {         
+        if(idx < rating) { star.classList.add('text-amber-500'); star.classList.remove('opacity-30'); }          
+        else { star.classList.remove('text-amber-500'); star.classList.add('opacity-30'); }       
+      });     
+    }      
+    
+    function submitCommunityPost() {       
+      const input = document.getElementById('communityPostInput');       
+      if(!input || !input.value.trim()) return;       
+      const content = input.value.trim();        
+      if (!validateContent(content)) return;        
+      const nickname = (currentUser && currentUser.displayName) || currentUser.email.split('@')[0] + ' 학우';       
+      database.ref('global_community').push({         
+        uid: currentUser.uid, email: currentUser.email, nickname: nickname, content: content, timestamp: firebase.database.ServerValue.TIMESTAMP       
+      }).then(() => { input.value = ''; }).catch(e => alert(e.message));     
+    }      
+    
+    function editCommunityPost(key, oldContent) {       
+      const edited = prompt("글 내용을 수정해 주세요:", oldContent);       
+      if(edited === null) return;       
+      const finalEdited = edited.trim();       
+      if(!finalEdited) { alert("공백은 등록 불가합니다."); return; }        
+      if (!validateContent(finalEdited)) return;        
+      database.ref('global_community/' + key).update({         
+        content: finalEdited, timestamp: firebase.database.ServerValue.TIMESTAMP       
+      }).catch(e => alert(e.message));     
+    }      
+    
+    function deleteCommunityPost(key) {       
+      if(confirm("이 게시글을 삭제하시겠습니까?")) database.ref('global_community/' + key).remove().catch(e => alert(e.message));     
+    }      
+    
+    function submitLectureReview() {       
+      const sub = document.getElementById('reviewSubjectSelect').value;       
+      const textInput = document.getElementById('reviewTextInput');       
+      const score = document.getElementById('reviewRatingValue').value;        
+      if(!textInput || !textInput.value.trim()) { alert("강의평 내용을 작성해 주세요."); return; }       
+      const reviewText = textInput.value.trim();        
+      if (!validateContent(reviewText)) return;        
+      const nickname = (currentUser && currentUser.displayName) || currentUser.email.split('@')[0] + ' 학우';       
+      database.ref('global_reviews').push({         
+        uid: currentUser.uid, email: currentUser.email, nickname: nickname, subject: sub, rating: parseInt(score), reviewText: reviewText, timestamp: firebase.database.ServerValue.TIMESTAMP       
+      }).then(() => {         
+        textInput.value = ''; alert("⭐️ 강의평가가 등록되었습니다.");       
+      }).catch(e => alert(e.message));     
+    }      
+    
+    function editReview(key, oldText) {
+        const edited = prompt("강의평을 수정해 주세요:", oldText);
+        if(edited === null) return;
+        const finalEdited = edited.trim();
+        if(!finalEdited) { alert("공백은 등록 불가합니다."); return; }
+        if (!validateContent(finalEdited)) return;
+        database.ref('global_reviews/' + key).update({ reviewText: finalEdited });
+    }
+
+    function deleteLectureReview(key) {       
+      if(confirm("이 과목 강의평을 삭제하시겠습니까?")) {
+        database.ref('global_reviews/' + key).remove().catch(e => alert(e.message));
+      }     
+    }
+
+    function toggleReviewFilter(subjectName) {
+      if (subjectName !== undefined) {
+        activeReviewFilter = activeReviewFilter === subjectName ? null : subjectName;
+      }
+      renderReviewsUI();
+    }      
+    
+    function saveCurrentStateToFirebase() {       
+      if (!currentUser) return;       
+      database.ref('users/' + currentUser.uid).set({ 
+        subjects: subjects, 
+        data: data, 
+        ddayList: ddayList, 
+        personalEvents: personalEvents, 
+        apps: apps,
+        bookmarkOrder: bookmarkOrder,
+        allOrder: allOrder // ✅ 전체보기 전용 순서 저장
+      });     
+    }      
+    
+    function handleAuth() {       
+      const email = document.getElementById('authEmail').value.trim(); const password = document.getElementById('authPassword').value;       
+      const nickname = document.getElementById('authNickname').value.trim();       
+      const isRegister = !document.getElementById('nicknameField').classList.contains('hidden');        
+      if (!email || !password) { alert('이메일과 비밀번호를 완벽히 입력하세요.'); return; }       
+      if (isRegister) {         
+        if(!nickname) { alert('사용할 닉네임을 꼭 지정해 주세요.'); return; }         
+        auth.createUserWithEmailAndPassword(email, password)            
+          .then((cred) => cred.user.updateProfile({ displayName: nickname }))            
+          .then(() => { alert('회원가입 완료! 로그인 상태로 전환됩니다.'); })            
+          .catch(e => alert('가입 실패: ' + e.message));       
+      } else {         
+        auth.signInWithEmailAndPassword(email, password).catch(e => alert('로그인 오류: ' + e.message));       
+      }     
+    }      
+    
+    function toggleAuthMode() {       
+      const field = document.getElementById('nicknameField'); const title = document.getElementById('authSubtitle');       
+      const pBtn = document.getElementById('authPrimaryBtn'); const tBtn = document.getElementById('authToggleBtn');       
+      if (field.classList.contains('hidden')) {         
+        field.classList.remove('hidden'); title.innerText = '필수 정보를 채워 신규 계정을 생성하세요.';         
+        pBtn.innerText = '계정 가입완료하기'; tBtn.innerText = '이미 가입하셨나요? 로그인하러 가기';       
+      } else {         
+        field.classList.add('hidden'); title.innerText = '서비스 이용을 위해 로그인해 주세요.';         
+        pBtn.innerText = '로그인하기'; tBtn.innerText = '아직 계정이 없으신가요? 회원가입하기';       
+      }     
+    }      
+    
+    function togglePasswordVisibility() {       
+      const p = document.getElementById('authPassword'); const eye = document.getElementById('eyeIcon');       
+      if(p.type === 'password') {         
+        p.type = 'text'; eye.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;       
+      } else {         
+        p.type = 'password'; eye.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />`;       
+      }     
+    }     
+    
+    function logout() { if(confirm('안전하게 로그아웃할까요?')) auth.signOut(); }      
+    
+    function launchTarget(target) {       
+      if (!target) return;       
+      const cleanTarget = target.trim();       
+      
+      if (cleanTarget.startsWith('http://') || cleanTarget.startsWith('https://')) { 
+        window.open(cleanTarget, '_blank'); 
+        return; 
+      }       
+
+      if (cleanTarget.startsWith('pdf/')) {
+        const encodedTarget = cleanTarget.split('/').map(part => encodeURIComponent(part)).join('/');
+        window.open("https://2026104274yoonhyukjin.github.io/MyCampusLinks1/" + encodedTarget, '_blank');
+        return;
+      }
+
+      if (cleanTarget.includes('://')) { 
+        window.location.href = cleanTarget; 
+        return; 
+      }       
+      
+      let protocolUrl = ""; const lower = cleanTarget.toLowerCase();       
+      if (lower.includes("3dsmax.exe")) protocolUrl = "openmax://";       
+      else if (lower.includes("devenv.exe")) protocolUrl = "vs2026://";       
+      else if (lower.includes("eclipse.exe")) protocolUrl = "eclipse://";       
+      else if (lower.includes("code.exe")) protocolUrl = "vscode://";       
+      else if (lower.includes("marktext.exe")) protocolUrl = "marktext://";       
+      
+      if (protocolUrl) { 
+        window.location.href = protocolUrl; 
+        return; 
+      }       
+      
+      if (cleanTarget.match(/^[a-zA-Z]:\\/)) {
+        alert("⚠️ 웹 브라우저 보안 정책상 C드라이브 프로그램(exe)을 직접 실행할 수 없습니다.\n\n해결법: 좌측 [기타 참고 자료] 메뉴의 '딥링크 설정 가이드'를 보고 해당 앱 전용 딥링크를 만들어 입력해 주세요!");
+      } else {
+        window.open('file:///' + cleanTarget.replace(/\\/g, '/'));     
+      }
+    }      
+    
+    function restoreDefaultData() {       
+      if(confirm('기본 탑재 고정형 수업자료를 복구하여 추가하시겠습니까? (내 자료 유지)')) {         
+        defaultSubjects.forEach(s => { if(!subjects.includes(s)) subjects.push(s); });         
+        defaultData.forEach(d => { if(!data.some(x => x.title === d.title)) data.push(d); });         
+        defaultDDayList.forEach(d => { 
+          if(!ddayList.some(x => x.title === d.title)) {
+            ddayList.push({ id: Date.now() + Math.floor(Math.random() * 1000), title: d.title, date: d.date });
+          }
+        });
+        defaultApps.forEach(a => { if(!apps.some(x => x.title === a.title)) apps.push(a); });
+        
+        saveCurrentStateToFirebase(); 
+        updateSidebarSubjects(); 
+        renderApps();
+        renderDDayList();
+        render(currentMode); 
+        alert('복구가 성료되었습니다.');       
+      }     
+    }      
+    
+    function updateSidebarSubjects() {       
+      const container = document.getElementById('sidebarSubjectList');       
+      if(!container) return; container.innerHTML = '';       
+      subjects.forEach(sub => {         
+        container.innerHTML += `           
+          <div data-id="${sub}" class="group flex items-center justify-between gap-1 px-4 py-1.5 rounded hover:bg-secondary-container text-[13px] text-on-surface select-none active:bg-surface-c-high transition-colors">             
+            <span class="sidebar-drag-handle text-on-surface-variant opacity-40 mr-1 cursor-grab active:cursor-grabbing">☰</span>
+            <span onclick="renderSubjectDetail('${sub}')" class="cursor-pointer font-medium truncate flex-1 hover:text-primary">📚 ${sub}</span>             
+            <button onclick="removeSubject('${sub}')" class="opacity-0 group-hover:opacity-100 text-[11px] text-error hover:font-bold px-1 transition">✕</button>           
+          </div>`;       
+      });     
+
+      if(window.subjectSortable) window.subjectSortable.destroy();
+      if(typeof Sortable !== 'undefined') {
+        window.subjectSortable = new Sortable(container, {
+          handle: '.sidebar-drag-handle',
+          animation: 150,
+          ghostClass: 'opacity-50',
+          onEnd: function (evt) {
+            if (evt.oldIndex === evt.newIndex) return;
+            const movedItem = subjects.splice(evt.oldIndex, 1)[0];
+            subjects.splice(evt.newIndex, 0, movedItem);
+            saveCurrentStateToFirebase();
+            
+            if (['subject', 'all', 'etc', 'bookmark'].includes(currentMode)) {
+              render(currentMode);
+            } else if (currentMode !== 'community') {
+              renderSubjectDetail(currentMode);
+            }
+          }
+        });
+      }
+    }      
+    
+    function renderDDayList() {       
+      const container = document.getElementById('ddayListContainer');       
+      if(!container) return; container.innerHTML = '';       
+      const today = new Date(); today.setHours(0,0,0,0);       
+      ddayList.forEach(item => {         
+        const target = new Date(item.date); target.setHours(0,0,0,0);         
+        const diffDays = Math.ceil((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));         
+        
+        if (diffDays < 0) return; 
+
+        let ddayStr = ""; let styleClass = ""; let textStyle = "";        
+        if (diffDays > 0) { ddayStr = `D-${diffDays}`; styleClass = "bg-primary-fixed border border-primary text-primary font-bold"; textStyle = "text-primary font-bold"; }          
+        else if (diffDays === 0) { ddayStr = "D-Day 🔥"; styleClass = "bg-red-100 border-2 border-red-600 animate-pulse"; textStyle = "text-red-600 font-black"; }          
+        
+        container.innerHTML += `           
+          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[12px] ${styleClass}">             
+            <span>${item.title}:</span><span class="${textStyle}">${ddayStr}</span>             
+            <button onclick="removeDDay(${item.id}, event)" class="hover:text-red-500 font-bold ml-1 text-[10px] opacity-40">✕</button>           
+          </div>`;       
+      });     
+    }      
+    
+    function handleSearch(isMobile = false) {       
+      searchQuery = document.getElementById(isMobile ? 'mobileSearchInput' : 'searchInput').value.toLowerCase().trim();       
+      if(currentMode !== 'community' && currentMode !== 'etc' && currentMode !== 'bookmark') render(currentMode);     
+    }      
+
+    function updateFilterSubjectOptions() {
+      const select = document.getElementById('filterSubject');
+      if (!select) return;
+      const currentVal = select.value;
+      select.innerHTML = '<option value="all">모든 과목</option>';
+      subjects.forEach(s => {
+        select.innerHTML += `<option value="${s}">${s}</option>`;
+      });
+      if (subjects.includes(currentVal) || currentVal === 'all') {
+        select.value = currentVal;
+      }
+    }
+
+    // 북마크 토글 로직 
+    function toggleBookmark(id, event) {
+      if(event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      const item = data.find(x => x.id === id);
+      if(!item) return;
+      
+      item.bookmark = !item.bookmark;
+      
+      if (item.bookmark) {
+        if (!bookmarkOrder.includes(id)) bookmarkOrder.push(id);
+      } else {
+        bookmarkOrder = bookmarkOrder.filter(x => x !== id);
+      }
+      saveCurrentStateToFirebase();
+      
+      const cardElement = document.querySelector('[data-id="' + id + '"]');
+      if(!cardElement) return;
+      
+      const bookmarkBtn = cardElement.querySelector('button[title="즐겨찾기"]');
+      if(bookmarkBtn) {
+        const starIcon = item.bookmark ? '⭐️' : '☆';
+        const starClass = item.bookmark ? 'text-yellow-500 opacity-100 hover:scale-110' : 'text-on-surface-variant opacity-40 hover:opacity-100 hover:scale-110';
+        bookmarkBtn.innerHTML = starIcon;
+        bookmarkBtn.className = 'relative z-10 text-[14px] p-1 rounded transition-transform ' + starClass;
+      }
+      
+      if(currentMode === 'bookmark') {
+        render('bookmark');
+      }
+    }
+
+    function removeMaterial(id, event) {       
+      if(event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }       
+      if(confirm('이 자료집 항목을 삭제할까요?')) { 
+        data = data.filter(x => x.id !== id);
+        bookmarkOrder = bookmarkOrder.filter(x => x !== id); 
+        allOrder = allOrder.filter(x => x !== id); // 전체보기 순서에서도 안전하게 삭제
+        saveCurrentStateToFirebase(); 
+        
+        const cardElement = document.querySelector('[data-id="' + id + '"]');
+        if(cardElement) {
+          cardElement.style.opacity = '0';
+          cardElement.style.transform = 'scale(0.95)';
+          cardElement.style.transition = 'all 0.2s ease';
+          
+          setTimeout(() => {
+            cardElement.remove();
+          }, 200);
+        }
+      }     
+    }
+
+    // 카드 생성 HTML
+    function createCardHtml(item, showDragHandle = true) {       
+      const isBookmarked = item.bookmark;
+      const starIcon = isBookmarked ? '⭐️' : '☆';
+      const starClass = isBookmarked ? 'text-yellow-500 opacity-100 hover:scale-110' : 'text-on-surface-variant opacity-40 hover:opacity-100 hover:scale-110';
+      
+      const bookmarkBtn = `<button onclick="toggleBookmark(${item.id}, event)" class="relative z-10 text-[14px] p-1 rounded transition-transform ${starClass}" title="즐겨찾기">${starIcon}</button>`;
+      const delBtn = `<button onclick="removeMaterial(${item.id}, event)" class="relative z-10 text-[12px] opacity-40 hover:opacity-100 p-1 hover:bg-error-container rounded transition" title="삭제">🗑️</button>`;       
+      
+      let typeIcon = '🌐';
+      if(item.type === 'file') typeIcon = '📄';
+      if(item.type === 'app') typeIcon = '💻';
+      if(item.type === 'video') typeIcon = '▶️';
+
+      if(!item.type) {
+        if((item.link || '').includes('pdf')) typeIcon = '📄';
+        else if((item.link || '').includes('youtu')) typeIcon = '▶️';
+      }
+
+      let descHtml = '';
+      if(item.desc) descHtml = `<p class="text-[12px] text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">${item.desc}</p>`;
+
+      const dragHandleHtml = showDragHandle ? `
+        <div class="drag-handle cursor-grab active:cursor-grabbing text-on-surface-variant opacity-30 hover:opacity-100 flex items-center justify-center shrink-0 pt-0.5 px-1" title="손잡이를 드래그하여 순서 변경">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+        </div>` : '';
+
+      return `         
+        <div data-id="${item.id}" data-link="${(item.link || '').replace(/\\/g, '\\\\')}" class="kanban-card flex items-start gap-2 p-3.5 rounded-xl bg-surface-c-lowest border border-ol-variant hover:border-primary hover:-translate-y-1 shadow-sm transition duration-200 cursor-pointer">           
+          ${dragHandleHtml}
+          <div class="flex-1 min-w-0 flex flex-col">             
+            <div class="flex items-center gap-3 mb-1">
+              <span class="text-[16px]">${typeIcon}</span>
+              <span class="text-[14px] font-bold text-on-surface break-words leading-snug">${item.title}</span>             
+            </div>
+            ${descHtml}
+            <div class="flex flex-wrap items-center gap-1.5 mt-2">               
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-c text-on-surface-variant font-bold border border-ol-variant/50">${item.subject}</span>               
+              <span class="text-[10px] font-bold text-on-surface-variant opacity-60">${item.week}</span>             
+            </div>           
+          </div>           
+          <div class="flex flex-col items-center gap-1 shrink-0 ml-1">
+            ${bookmarkBtn}
+            ${delBtn}         
+          </div>
+        </div>`;     
+    }   
+
+    function render(mode) {       
+      currentMode = mode;       
+      const dashView = document.getElementById('mainDashboardContent'); 
+      const commView = document.getElementById('mainCommunityContent');       
+      const hSearch = document.getElementById('headerSearchWrapper'); 
+      const mSearch = document.getElementById('mobileSearchWrapper');        
+      const searchBar = document.getElementById('categorySearchBar');
+
+      if (mode === 'community') {         
+        dashView.classList.add('hidden'); commView.classList.remove('hidden');         
+        if(hSearch) hSearch.classList.add('invisible'); if(mSearch) mSearch.classList.add('hidden');         
+        updateActiveMenu('community'); activeReviewFilter = null; switchCommunityTab('board'); return;       
+      }       
+      
+      dashView.classList.remove('hidden'); commView.classList.add('hidden');       
+      if(hSearch) hSearch.classList.remove('invisible'); if(mSearch) mSearch.classList.remove('hidden');        
+      
+      const board = document.getElementById('board'); 
+      const boardTitle = document.getElementById('boardTitle');       
+      board.innerHTML = ''; 
+      updateActiveMenu(mode);        
+
+      let filtered = data;       
+      
+      if (searchQuery) {
+        filtered = filtered.filter(item => 
+          (item.title && item.title.toLowerCase().includes(searchQuery)) || 
+          (item.subject && item.subject.toLowerCase().includes(searchQuery)) || 
+          (item.week && item.week.toLowerCase().includes(searchQuery)) ||
+          (item.desc && item.desc.toLowerCase().includes(searchQuery))
+        );        
+      }
+
+      if (mode === 'all') {
+        searchBar.classList.remove('hidden');
+        updateFilterSubjectOptions();
+
+        const sSubj = document.getElementById('filterSubject').value;
+        const sWeek = document.getElementById('filterWeek').value;
+        const sSort = document.getElementById('filterSort').value;
+
+        if (sSubj !== 'all') filtered = filtered.filter(item => item.subject === sSubj);
+        if (sWeek !== 'all') filtered = filtered.filter(item => item.week === sWeek);
+
+        if (sSort === 'newest') {
+          filtered.sort((a,b) => b.id - a.id);
+        } else if (sSort === 'oldest') {
+          filtered.sort((a,b) => a.id - b.id);
+        } else {
+          // ✅ 전체보기 전용 수동 정렬
+          filtered.sort((a, b) => {
+              let idxA = allOrder.indexOf(a.id);
+              let idxB = allOrder.indexOf(b.id);
+              if (idxA === -1) idxA = 999999 + a.id; 
+              if (idxB === -1) idxB = 999999 + b.id;
+              return idxA - idxB;
+          });
+        }
+      } else {
+        searchBar.classList.add('hidden');
+      }
+
+      if (mode === 'etc') {
+        boardTitle.innerText = "기타 참고 자료 보관함";
+        // ✅ 기타 보기에도 Sortable이 적용될 수 있게 card-list 적용
+        let html = `<div class="card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full items-start" data-filter-mode="etc">`;
+        
+        const etcData = [
+          { title: "딥링크 설정 가이드 (프로그램 원클릭 실행법)", subject: "가이드", week: "상시", link: "pdf/딥링크_설정_가이드.pdf" },
+          { title: "프론트엔드프로그래밍 OT 자료", subject: "수업자료", week: "1주차", link: "https://dayoung-univ.github.io/Frontend2026-01/OT" },
+          { title: "마크다운 작성방법 참고자료", subject: "수업자료", week: "1주차", link: "pdf/마크다운_보충자료.pdf" }
+        ];
+
+        etcData.forEach(item => {
+          // ✅ 기타 보기에도 핸들 (⋮⋮) 표시
+          html += `
+            <div data-link="${item.link || ''}" class="kanban-card flex items-start gap-2 p-3.5 rounded-xl bg-surface-c-lowest border border-ol-variant hover:border-primary hover:-translate-y-1 shadow-sm transition duration-200 cursor-pointer">
+              <div class="drag-handle cursor-grab active:cursor-grabbing text-on-surface-variant opacity-30 hover:opacity-100 flex items-center justify-center shrink-0 pt-0.5 px-1" title="손잡이를 드래그하여 순서 변경">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+              </div>
+              <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+                <span class="text-[14px] font-bold text-on-surface break-words leading-snug">${item.title}</span>
+                <div class="flex items-center gap-3">
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-primary-fixed text-primary font-bold">${item.subject}</span>
+                  <span class="text-[11px] text-on-surface-variant opacity-80">${item.week}</span>
+                </div>
+              </div>
+            </div>`;
+        });
+        html += `</div>`;
+        board.innerHTML = html;
+
+        document.querySelectorAll('.kanban-card').forEach(card => {
+          card.addEventListener('click', function(e) {
+            if(e.target.closest('button') || e.target.closest('.drag-handle')) return;
+            const link = this.getAttribute('data-link');
+            if(link) launchTarget(link);
+          });
+        });
+        
+        initCardSortable(); // 기타 보기 드래그 활성화
+        return;
+      }
+
+      if (mode === 'bookmark') {
+        boardTitle.innerText = "⭐️ 즐겨찾기 보관함 (좌측 ≡ 핸들을 드래그하여 이동)";
+        let html = `<div class="card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" data-filter-mode="bookmark">`;
+        const bookmarkedOnly = filtered.filter(item => item.bookmark);
+        
+        bookmarkedOnly.sort((a, b) => {
+            let idxA = bookmarkOrder.indexOf(a.id);
+            let idxB = bookmarkOrder.indexOf(b.id);
+            if (idxA === -1) idxA = 999999 + a.id; 
+            if (idxB === -1) idxB = 999999 + b.id;
+            return idxA - idxB;
+        });
+
+        bookmarkedOnly.forEach(item => html += createCardHtml(item, true)); 
+        if(bookmarkedOnly.length === 0) html += `<p class="text-[13px] text-on-surface-variant py-4 col-span-full text-center">표시할 즐겨찾기 자료가 없습니다.</p>`;
+        html += `</div>`;
+        board.innerHTML = html;
+
+        document.querySelectorAll('.kanban-card').forEach(card => {
+          card.addEventListener('click', function(e) {
+            if(e.target.closest('button') || e.target.closest('.drag-handle')) return;
+            const link = this.getAttribute('data-link');
+            if(link) launchTarget(link);
+          });
+        });
+
+        initCardSortable(); 
+        return;
+      }
+
+      if (mode === 'subject') {         
+        boardTitle.innerText = "내 과목별 타임라인 보드 (좌측 ≡ 핸들을 드래그하여 이동)";                  
+        let gridWrapperHtml = `<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full items-start">`;         
+        
+        subjects.forEach(key => {           
+          const itemsInKey = filtered.filter(x => x.subject === key);           
+          if(itemsInKey.length === 0 && searchQuery) return;
+          
+          let columnHtml = `             
+            <div class="column flex flex-col w-full bg-surface-c-low border border-ol-variant rounded-xl p-4 shadow-sm">               
+              <h2 class="text-[15px] font-bold text-primary border-b border-ol-variant pb-2.5 mb-3 text-center">📚 ${key}</h2>               
+              <div class="card-list flex flex-col gap-2 min-h-[50px] max-h-[400px] overflow-y-auto custom-scrollbar pr-1" data-filter-key="${key}" data-filter-mode="subject">`;                      
+          if(itemsInKey.length === 0) {             
+            columnHtml += `<p class="text-[12px] text-on-surface-variant opacity-50 py-2 text-center">자료가 없습니다.</p>`;           
+          } else {             
+            itemsInKey.forEach(item => columnHtml += createCardHtml(item, true));           
+          }           
+          columnHtml += `</div></div>`;           
+          gridWrapperHtml += columnHtml;         
+        });         
+        gridWrapperHtml += `</div>`;         
+        board.innerHTML = gridWrapperHtml;
+
+        document.querySelectorAll('.kanban-card').forEach(card => {
+          card.addEventListener('click', function(e) {
+            if(e.target.closest('button') || e.target.closest('.drag-handle')) return;
+            const link = this.getAttribute('data-link');
+            if(link) launchTarget(link);
+          });
+        });       
+
+        initCardSortable(); 
+
+      } else if (mode === 'all') {         
+        boardTitle.innerText = "전체 리스트 대시보드 (좌측 ≡ 핸들을 드래그하여 이동)";         
+        // ✅ 전체 보기에도 Sortable 적용을 위해 card-list 적용
+        let html = `<div class="card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full" data-filter-mode="all">`;         
+        
+        filtered.forEach(item => html += createCardHtml(item, true)); // 핸들 허용
+        html += `</div>`;         
+        if (filtered.length === 0) {
+          board.innerHTML = `<p class="text-center text-[13px] text-on-surface-variant py-8 bg-surface-c-lowest border border-dashed border-ol-variant rounded-xl w-full">조건에 맞는 자료가 없습니다.</p>`;
+        } else {
+          board.innerHTML = html;       
+        }
+
+        document.querySelectorAll('.kanban-card').forEach(card => {
+          card.addEventListener('click', function(e) {
+            if(e.target.closest('button') || e.target.closest('.drag-handle')) return;
+            const link = this.getAttribute('data-link');
+            if(link) launchTarget(link);
+          });
+        });
+
+        initCardSortable(); // ✅ 전체보기 드래그 앤 드롭 활성화
+      }     
+    }      
+    
+    function renderSubjectDetail(subjectName) {
+      const dashView = document.getElementById('mainDashboardContent');
+      const commView = document.getElementById('mainCommunityContent');
+      const hSearch = document.getElementById('headerSearchWrapper');
+      const mSearch = document.getElementById('mobileSearchWrapper');
+      dashView.classList.remove('hidden'); commView.classList.add('hidden');
+      if(hSearch) hSearch.classList.remove('invisible'); if(mSearch) mSearch.classList.remove('hidden');
+
+      currentMode = subjectName; updateActiveMenu('');       
+      const board = document.getElementById('board'); const boardTitle = document.getElementById('boardTitle');       
+      board.innerHTML = ''; boardTitle.innerText = `과목 단독 보기: ${subjectName}`;       
+      
+      document.getElementById('categorySearchBar').classList.add('hidden');
+
+      let html = `<div class="bg-surface-c-low border border-ol-variant rounded-xl p-5 shadow-sm max-w-3xl mx-auto w-full"><div class="card-list flex flex-col gap-2.5" data-filter-key="${subjectName}">`;       
+      const filtered = data.filter(item => item.subject === subjectName && (!searchQuery || item.title.toLowerCase().includes(searchQuery)));       
+      
+      filtered.forEach(item => html += createCardHtml(item, true));       
+      if(filtered.length === 0) html += `<p class="text-center text-[13px] text-on-surface-variant py-4">등록 자료가 존재하지 않습니다.</p>`;       
+      html += `</div></div>`;       
+      board.innerHTML = html;     
+
+      document.querySelectorAll('.kanban-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          if(e.target.closest('button') || e.target.closest('.drag-handle')) return;
+          const link = this.getAttribute('data-link');
+          if(link) launchTarget(link);
+        });
+      });
+
+      initCardSortable(); 
+    }      
+    
+    function updateActiveMenu(mode) {       
+      const items = document.querySelectorAll('.menu-item');       
+      items.forEach(el => el.className = "menu-item flex items-center gap-4 px-4 py-[10px] rounded text-on-surface-variant hover:bg-secondary-container text-[14px]");       
+      
+      if(mode === 'subject') items[0].classList.add('bg-primary-fixed', 'text-primary', 'font-bold');       
+      if(mode === 'all') items[1].classList.add('bg-primary-fixed', 'text-primary', 'font-bold');       
+      if(mode === 'etc') items[2].classList.add('bg-primary-fixed', 'text-primary', 'font-bold'); 
+      if(mode === 'bookmark') items[3].classList.add('bg-primary-fixed', 'text-primary', 'font-bold'); 
+      if(mode === 'community') items[4].classList.add('bg-primary-fixed', 'text-primary', 'font-bold');     
+    }      
+    
+    function openSubjectModal() { document.getElementById('subjectModal').classList.remove('hidden'); }     
+    function closeSubjectModal() { document.getElementById('subjectModal').classList.add('hidden'); document.getElementById('newSubjectName').value = ''; }     
+    function openItemModal() {       
+      const select = document.getElementById('newItemSubject'); select.innerHTML = '';       
+      subjects.forEach(s => select.innerHTML += `<option value="${s}">${s}</option>`);       
+      selectItemType('web'); 
+      document.getElementById('itemModal').classList.remove('hidden');     
+    }     
+    
+    function openDDayModal() { document.getElementById('ddayModal').classList.remove('hidden'); }     
+    function closeDDayModal() { document.getElementById('ddayModal').classList.add('hidden'); document.getElementById('newDDayTitle').value = ''; document.getElementById('newDDayDate').value = ''; }      
+    
+    function addSubject() {       
+      const name = document.getElementById('newSubjectName').value.trim(); if(!name) return;       
+      if(subjects.includes(name)) { alert('동일 명칭 과목이 존재합니다.'); return; }       
+      subjects.push(name); saveCurrentStateToFirebase(); updateSidebarSubjects(); render(currentMode); closeSubjectModal();     
+    }     
+    
+    function removeSubject(name) {       
+      if(confirm(`[${name}] 과목을 삭제할까요?`)) { subjects = subjects.filter(x => x !== name); saveCurrentStateToFirebase(); updateSidebarSubjects(); render(currentMode); }     
+    }     
+    
+    function addDDayEvent() {       
+      const title = document.getElementById('newDDayTitle').value.trim(); const date = document.getElementById('newDDayDate').value;       
+      if(!title || !date) return;       
+      ddayList.push({ id: Date.now(), title, date });       
+      saveCurrentStateToFirebase(); renderDDayList(); closeDDayModal();     
+    }     
+    
+    function removeDDay(id, event) {       
+      if(event) event.stopPropagation(); 
+      if(confirm('이 D-Day 일정을 삭제하시겠습니까?')) {
+        ddayList = ddayList.filter(x => x.id !== id); 
+        saveCurrentStateToFirebase(); 
+        renderDDayList();     
+      }
+    }      
+    
+    const holidays = {       
+      "01-01": "신정", "03-01": "삼일절", "05-01": "노동절", "05-05": "어린이날", "06-06": "현충일",       
+      "07-17": "제헌절", "08-15": "광복절", "10-03": "개천절", "10-09": "한글날", "12-25": "성탄절",       
+      "2026-02-16": "설날 연휴", "2026-02-17": "설날 당일", "2026-02-18": "설날 연휴",       
+      "2026-03-02": "대체공휴일", "2026-05-24": "부처님오신날", "2026-05-25": "대체공휴일",       
+      "2026-08-17": "대체공휴일", "2026-09-24": "추석 연휴", "2026-09-25": "추석 당일",       
+      "2026-09-26": "추석 연휴", "2026-09-28": "대체공휴일", "2026-10-05": "대체공휴일"     
+    };      
+    
+    const fixedCalendarEvents = [       
+      { start: "2026-03-02", end: "2026-03-02", title: "1학기 개강 🌸", type: "major" },       
+      { start: "2026-04-21", end: "2026-04-27", title: "1학기 중간고사 ✍️", type: "major" },       
+      { start: "2026-06-02", end: "2026-06-24", title: "1학기 기말 강의평가 📋", type: "major" },       
+      { start: "2026-06-09", end: "2026-06-15", title: "1학기 기말고사 💯", type: "major" },       
+      { start: "2026-06-16", end: "2026-06-16", title: "하계방학 개시 🏖️", type: "vacation" },
+      { start: "2026-06-16", end: "2026-07-13", title: "하계계절학기 ☀️", type: "major" },
+      { start: "2026-07-01", end: "2026-07-03", title: "2026-2학기 전과원서 접수 📝", type: "major" },
+      { start: "2026-07-09", end: "2026-07-15", title: "하계계절학기 성적평가·입력 📊", type: "major" },
+      { start: "2026-07-16", end: "2026-07-17", title: "하계계절학기 성적조회·이의신청 🔍", type: "major" },
+      { start: "2026-07-20", end: "2026-07-22", title: "2026-2학기 일반휴학 접수 ⏸️", type: "major" },
+      { start: "2026-07-27", end: "2026-07-29", title: "2026-2학기 복학ㆍ재입학·재등록 접수 ▶️", type: "major" },
+      { start: "2026-08-11", end: "2026-08-14", title: "2학기 수강신청 🖱️", type: "major" },
+      { start: "2026-08-21", end: "2026-08-21", title: "제51회 후기 학위수여식 🎓", type: "major" }
+    ];      
+    
+    function openCalendarModal() { document.getElementById('calendarModal').classList.remove('hidden'); drawCalendarGrid(); }     
+    function closeCalendarModal() { document.getElementById('calendarModal').classList.add('hidden'); }     
+    function moveCalendarMonth(dir) { calDate.setMonth(calDate.getMonth() + dir); drawCalendarGrid(); }      
+    
+    function drawCalendarGrid() {       
+      const grid = document.getElementById('calendarGrid');       
+      const title = document.getElementById('calendarMonthTitle');       
+      if(!grid) return; grid.innerHTML = '';        
+      const year = calDate.getFullYear(); const month = calDate.getMonth();       
+      title.innerText = `${year}년 ${String(month + 1).padStart(2,'0')}월`;        
+      const firstDay = new Date(year, month, 1).getDay();       
+      const lastDate = new Date(year, month + 1, 0).getDate();        
+      for(let i=0; i<firstDay; i++) grid.innerHTML += `<div class="p-2"></div>`;        
+      for(let date=1; date<=lastDate; date++) {         
+        const fullDateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(date).padStart(2,'0')}`;         
+        const mdStr = `${String(month+1).padStart(2,'0')}-${String(date).padStart(2,'0')}`;         
+        const weekday = new Date(year, month, date).getDay();          
+        const isHoliday = holidays[fullDateStr] || holidays[mdStr];         
+        const activeEvents = fixedCalendarEvents.filter(ev => { const s = new Date(ev.start); const e = new Date(ev.end || ev.start); const c = new Date(fullDateStr); return c >= s && c <= e; });         
+        const hasCustom = personalEvents.some(x => x.date === fullDateStr);          
+        let colorClass = "text-on-surface"; let bgClass = "bg-surface-c-lowest";                  
+        if(weekday === 0 || isHoliday) colorClass = "text-red-500 font-bold";         
+        else if(weekday === 6) colorClass = "text-blue-500 font-bold";          
+        if(activeEvents.length > 0) bgClass = "bg-primary-fixed/60 font-bold text-primary";                  
+        let dot = hasCustom ? `<span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-amber-500 rounded-full"></span>` : '';         
+        const isSelected = selectedDateStr === fullDateStr ? 'border-2 border-primary shadow-md scale-105 z-5' : 'border border-ol-variant/30';          
+        let holidayNameHtml = isHoliday ? `<div class="text-[9px] text-red-500 mt-0.5 truncate w-full px-0.5">${isHoliday}</div>` : '';          
+        grid.innerHTML += `           
+          <div onclick="showDateDetails('${fullDateStr}')" class="p-1 rounded-lg text-center text-[12px] relative cursor-pointer min-h-[46px] flex flex-col items-center justify-center ${bgClass} ${colorClass} ${isSelected}">             
+            <span class="z-10">${date}</span>             
+            ${holidayNameHtml}             
+            ${dot}           
+          </div>`;       
+      }     
+    }      
+    
+    function showDateDetails(dateStr) {       
+      selectedDateStr = dateStr; drawCalendarGrid();       
+      const box = document.getElementById('calendarDetailsBox');       
+      const header = document.getElementById('selectedDateHeader');       
+      const container = document.getElementById('selectedDateDetailsContainer');              
+      box.classList.remove('hidden'); header.innerText = `📌 [${dateStr}] 일정 타임라인`; container.innerHTML = '';        
+      const mdStr = dateStr.substring(5);      
+      const isHoliday = holidays[dateStr] || holidays[mdStr];       
+      if (isHoliday) {         
+        container.innerHTML += `           
+          <div class="flex items-center gap-3 p-1.5 rounded bg-red-50 border border-red-200">             
+            <span class="text-[10px] px-1 py-0.5 rounded bg-red-500 text-white font-bold">휴일</span>             
+            <span class="font-bold text-red-600">${isHoliday}</span>           
+          </div>`;       
+      }        
+      const matchedFixed = fixedCalendarEvents.filter(ev => { const s = new Date(ev.start); const e = new Date(ev.end || ev.start); const c = new Date(dateStr); return c >= s && c <= e; });       
+      matchedFixed.forEach(ev => {         
+        container.innerHTML += `           
+          <div class="flex items-center gap-3 p-1.5 rounded bg-primary-fixed text-primary border border-primary/20">             
+            <span class="text-[10px] px-1 py-0.5 rounded bg-primary text-white font-bold">학사</span><span class="font-medium">${ev.title}</span>           
+          </div>`;       
+      });        
+      const matchedPersonal = personalEvents.filter(x => x.date === dateStr);       
+      matchedPersonal.forEach(ev => {         
+        container.innerHTML += `           
+          <div class="flex items-center justify-between gap-3 p-1.5 rounded bg-amber-50 border border-amber-200">             
+            <div class="flex items-center gap-3"><span class="text-[10px] px-1 py-0.5 rounded bg-amber-500 text-white font-bold">개인</span><span class="font-medium text-amber-900">${ev.title}</span></div>             
+            <button onclick="deletePersonalEvent(${ev.id}, event)" class="text-red-500 text-[10px] px-1.5 hover:bg-red-100 rounded">삭제</button>           
+          </div>`;       
+      });        
+      if(container.innerHTML === '') container.innerHTML = `<p class="text-center text-on-surface-variant opacity-40 py-2">일정이 없는 클린한 날입니다. ✨</p>`;     
+    }      
+    
+    function openAddPersonalEventPrompt() {       
+      if(!selectedDateStr) { alert('달력에서 날짜를 선택해 주세요.'); return; }       
+      const title = prompt(`[${selectedDateStr}] 일자에 등록할 개인 일정 명칭:`);       
+      if(!title || !title.trim()) return;       
+      personalEvents.push({ id: Date.now(), date: selectedDateStr, title: title.trim() });       
+      saveCurrentStateToFirebase(); drawCalendarGrid(); showDateDetails(selectedDateStr);     
+    }     
+    
+    function deletePersonalEvent(id, event) {       
+      if(event) event.stopPropagation();       
+      if(confirm('일정을 지울까요?')) { personalEvents = personalEvents.filter(x => x.id !== id); saveCurrentStateToFirebase(); drawCalendarGrid(); showDateDetails(selectedDateStr); }     
+    }      
+    
+    function updateLiveClock() {       
+      const days = ['일', '월', '화', '수', '목', '금', '토']; const now = new Date();       
+      const y = now.getFullYear(); const m = String(now.getMonth()+1).padStart(2,'0'); const d = String(now.getDate()).padStart(2,'0');       
+      const day = days[now.getDay()]; const hrs = now.getHours(); const min = String(now.getMinutes()).padStart(2,'0'); const sec = String(now.getSeconds()).padStart(2,'0');       
+      const ampm = hrs >= 12 ? '오후' : '오전'; const displayHrs = String(hrs % 12 || 12).padStart(2,'0');       
+      const text = `${y}년 ${m}월 ${d}일 (${day}) ${ampm} ${displayHrs}:${min}:${sec}`;       
+      const element = document.getElementById('liveDateTime'); if(element) element.innerText = text;     
+    }     
+    setInterval(updateLiveClock, 1000); updateLiveClock();   
+
+    const CLOUD_NAME = 'dg3h2hqeh'; 
+    const UPLOAD_PRESET = 'dqgnclnw'; 
+    let currentItemType = 'web';
+
+    function selectItemType(type) {
+      currentItemType = type;
+      const types = ['web', 'file', 'app', 'video'];
+      types.forEach(t => {
+        const btn = document.getElementById('typeBtn_' + t);
+        if (t === type) btn.className = "flex flex-col items-start justify-center p-3 rounded-xl border-2 border-primary bg-primary text-white transition-all text-left";
+        else btn.className = "flex flex-col items-start justify-center p-3 rounded-xl border-2 border-surface-c bg-surface-c-lowest text-on-surface-variant hover:border-primary hover:text-primary transition-all text-left";
+      if (window.lucide) lucide.createIcons();
+      });
+
+      if (type === 'file') {
+        document.getElementById('newItemUrlWrapper').classList.add('hidden');
+        document.getElementById('newItemFileWrapper').classList.remove('hidden');
+      } else {
+        document.getElementById('newItemUrlWrapper').classList.remove('hidden');
+        document.getElementById('newItemFileWrapper').classList.add('hidden');
+        const urlInput = document.getElementById('newItemLink');
+        if(type === 'web') urlInput.placeholder = "https://...";
+        if(type === 'app') urlInput.placeholder = "예: discord:// 또는 C:\\...\\app.exe";
+        if(type === 'video') urlInput.placeholder = "https://youtube.com/...";
+      }
+
+      if (type === 'app') {
+        document.getElementById('subjectWeekRow').classList.add('hidden');
+      } else {
+        document.getElementById('subjectWeekRow').classList.remove('hidden');
+      }
+    }
+
+    function closeItemModal() { 
+      document.getElementById('itemModal').classList.add('hidden'); 
+      document.getElementById('newItemTitle').value = ''; 
+      document.getElementById('newItemDesc').value = ''; 
+      document.getElementById('newItemLink').value = ''; 
+      document.getElementById('newItemFile').value = '';
+      document.getElementById('uploadProgressWrapper').classList.add('hidden');
+      document.getElementById('uploadProgressBar').style.width = '0%';
+    }
+
+    function addItem() {
+      const title = document.getElementById('newItemTitle').value.trim();
+      const desc = document.getElementById('newItemDesc').value.trim();
+      let link = document.getElementById('newItemLink').value.trim();
+      const subject = document.getElementById('newItemSubject').value;
+      const week = document.getElementById('newItemWeek').value;
+      const fileInput = document.getElementById('newItemFile');
+
+      if(!title) { alert('제목을 입력하세요.'); return; }
+
+      if (currentItemType === 'app') {
+        apps.push({ id: Date.now(), title: title, desc: desc, icon: '🖥️', link: link });
+        saveCurrentStateToFirebase();
+        renderApps(); 
+        closeItemModal();
+        return;
+      }
+
+      const newItem = {
+        id: Date.now(),
+        type: currentItemType,
+        title: title,
+        desc: desc,
+        subject: subject,
+        week: week,
+        bookmark: false
+      };
+
+      if (currentItemType === 'file' && fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', UPLOAD_PRESET);
+
+        document.getElementById('uploadProgressWrapper').classList.remove('hidden');
+        
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`, true);
+
+        xhr.upload.onprogress = function(e) {
+          if (e.lengthComputable) {
+            const percentComplete = Math.round((e.loaded / e.total) * 100);
+            document.getElementById('uploadProgressBar').style.width = percentComplete + '%';
+            document.getElementById('uploadPercent').innerText = percentComplete + '%';
+          }
+        };
+
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            newItem.link = response.secure_url; 
+            saveNewItemToDB(newItem);
+          } else {
+            alert('파일 업로드 실패: ' + xhr.responseText);
+            document.getElementById('uploadProgressWrapper').classList.add('hidden');
+          }
+        };
+
+        xhr.onerror = function() {
+          alert('네트워크 오류로 파일 업로드에 실패했습니다.');
+          document.getElementById('uploadProgressWrapper').classList.add('hidden');
+        };
+
+        xhr.send(formData);
+      } else {
+        newItem.link = link;
+        saveNewItemToDB(newItem);
+      }
+    }
+
+    function saveNewItemToDB(newItem) {
+      data.push(newItem);
+      saveCurrentStateToFirebase(); 
+      render(currentMode); 
+      closeItemModal();
+    }
+  </script> 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+});
+</script>
 </body>
+ 
 </html>
